@@ -35,7 +35,7 @@ export default function AdminInsertProducts() {
                         alert("No Data Found");
                     }
                     else {
-                        data.splice(0,2);
+                        data.splice(0, 2);
                         setCategory(data);
                     }
                 }
@@ -74,31 +74,31 @@ export default function AdminInsertProducts() {
     }
     return (<>
         <AdminMenu />
-        <div className="bg-gray-900 capitalize">
-            <div className="container mx-auto p-4 flex justify-center items-center">
-                <div className="lg:w-2/3 md:w-3/4 sm:w-full bg-gray-800 bg-opacity-50 rounded-lg p-4">
-                    <h2 className="text-white text-lg font-medium title-font mb-4">Add new product</h2>
+        <div className="bg-indigo-200 capitalize">
+            <div className="container mx-auto p-5 flex justify-center items-center">
+                <div className="lg:w-2/3 md:w-3/4 sm:w-full bg-indigo-300 bg-opacity-50 rounded-lg p-4">
+                    <h2 className="text-gray-900 text-lg font-bold title-font mb-4">Add new product</h2>
                     <form method="post" encType="multipart/form-data" onSubmit={(event) => InsertProducts(event)}>
                         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="mb-4">
-                                <label htmlFor="title" className="leading-7 text-sm text-gray-400">Product title</label>
-                                <input type="text" id="title" className="w-full sm:w-full md:w-full lg:w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Product title" name="title" required value={title} onChange={(event) => setTitle(event.target.value)} />
+                                <label htmlFor="title" className="leading-7 text-sm text-gray-900">Product title</label>
+                                <input type="text" id="title" className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-900" placeholder="Product title" name="title" required value={title} onChange={(event) => setTitle(event.target.value)} />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="stock" className="leading-7 text-sm text-gray-400">Stock</label>
-                                <input type="number" id="stock" className="w-full sm:w-full md:w-full lg:w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Product stock" name="stock" required value={stock} onChange={(event) => setStock(event.target.value)} />
+                                <label htmlFor="stock" className="leading-7 text-sm text-gray-900">Stock</label>
+                                <input type="number" id="stock" className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-900" placeholder="Product stock" name="stock" required value={stock} onChange={(event) => setStock(event.target.value)} />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="photo" className="leading-7 text-sm text-gray-400">Select Photo</label>
-                                <input type="file" id="photo" className="w-full sm:w-full md:w-full lg:w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" name="photo" accept="image/*" required onChange={(event) => setPhoto(event.target.files[0])} />
+                                <label htmlFor="photo" className="leading-7 text-sm text-gray-900">Select Photo</label>
+                                <input type="file" id="photo" className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-900" name="photo" accept="image/*" required onChange={(event) => setPhoto(event.target.files[0])} />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="price" className="leading-7 text-sm text-gray-400">Price</label>
-                                <input type="number" id="price" className="w-full sm:w-full md:w-full lg:w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Product price" name="price" required value={price} onChange={(event) => setPrice(event.target.value)} />
+                                <label htmlFor="price" className="leading-7 text-sm text-gray-900">Price</label>
+                                <input type="number" id="price" className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-900" placeholder="Product price" name="price" required value={price} onChange={(event) => setPrice(event.target.value)} />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="categoryid" className="leading-7 text-sm text-gray-400">Select Category</label>
-                                <select className="w-full sm:w-full md:w-full lg:w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base py-1 px-3 leading-8 transition-colors duration-200 ease-in-out form-select form-select-lg" required onChange={(event) => setCategoryid(event.target.value)} >
+                                <label htmlFor="categoryid" className="leading-7 text-sm text-gray-900">Select Category</label>
+                                <select className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-900" required onChange={(event) => setCategoryid(event.target.value)} >
                                     <option disabled selected className="text-gray-400">Select Category</option>
                                     {
                                         category.map((item) => {
@@ -108,8 +108,8 @@ export default function AdminInsertProducts() {
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="detail" className="leading-7 text-sm text-gray-400">Detail</label>
-                                <textarea className="w-full sm:w-full md:w-full lg:w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Product description" id="detail" style={{ "height": "80px" }} name="detail" required onChange={(event) => setDetail(event.target.value)} />
+                                <label htmlFor="detail" className="leading-7 text-sm text-gray-900">Detail</label>
+                                <textarea className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-900" placeholder="Product description" id="detail" style={{ "height": "80px" }} name="detail" required onChange={(event) => setDetail(event.target.value)} />
                             </div>
                         </div>
                         <div className="grid gap-4">
