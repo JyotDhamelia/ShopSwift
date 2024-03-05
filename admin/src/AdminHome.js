@@ -48,19 +48,15 @@ function AdminHome() {
             responseType: 'json'
         }).then((response) => {
             console.log(response.data);
-            if(response.status == 200)
-            {
-                let data =  response.data;
-                if(data[0]['error'] != 'no')
-                {
+            if (response.status == 200) {
+                let data = response.data;
+                if (data[0]['error'] != 'no') {
                     alert(data[0]['error']);
                 }
-                else if(data[1]['total'] == 0)
-                {
+                else if (data[1]['total'] == 0) {
                     alert("No Data Found");
                 }
-                else
-                {
+                else {
                     setTotalorders(data[1]['total']);
                     console.log(totalOrders);
                 }
@@ -68,8 +64,7 @@ function AdminHome() {
         });
     }
 
-    let FetchProducts = function() 
-    {
+    let FetchProducts = function () {
         let apiAddress = BaseAddress() + "product.php";
         axios({
             url: apiAddress,
@@ -77,19 +72,15 @@ function AdminHome() {
             responseType: 'json'
         }).then((response) => {
             console.log(response.data);
-            if(response.status == 200)
-            {
-                let data  = response.data;
-                if(data[0]['error'] != "no")
-                {
+            if (response.status == 200) {
+                let data = response.data;
+                if (data[0]['error'] != "no") {
                     alert(data[0]['error']);
-                } 
-                else if(data[1]['total'] == 0)
-                {
+                }
+                else if (data[1]['total'] == 0) {
                     alert("No Data Found")
                 }
-                else
-                {
+                else {
                     setTotalproducts(data[1]['total']);
                     console.log(totalProducts);
                 }
@@ -97,27 +88,23 @@ function AdminHome() {
         });
     }
 
-    let FetchUsers = function()
-    {
+    let FetchUsers = function () {
         let apiAddress = BaseAddress() + "users.php";
         axios({
             url: apiAddress,
             method: 'get',
             responseType: 'json'
-        }).then((response) =>{
+        }).then((response) => {
             console.log(response.data);
-            if(response.status == 200)
-            {
+            if (response.status == 200) {
                 let data = response.data;
-                if(data[0]['error'] != 'no')
-                {
+                if (data[0]['error'] != 'no') {
                     alert(data[0]['error']);
                 }
-                else if(data[1]['total'] == 0)
-                {
+                else if (data[1]['total'] == 0) {
                     alert("No Data Found");
                 }
-                else{
+                else {
                     setTotalusers(data[1]['total']);
                     console.log(totalUsers);
                 }
@@ -135,7 +122,7 @@ function AdminHome() {
     return (<>
         <AdminMenu />
         <div className="container mx-auto mt-28 mb-24">
-            <h2 className="text-2xl text-gray-500 font-semibold text-center mb-16">Welcome Admin</h2>
+            <h2 className="text-2xl text-gray-700 font-semibold text-center mb-16">Welcome Admin</h2>
             <div className="flex justify-center">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-1">
@@ -149,7 +136,7 @@ function AdminHome() {
                     <div className="col-span-1">
                         <div className="bg-green-500 p-5 rounded-lg shadow-lg hover:bg-green-600 transition duration-300 ease-in-out">
                             <Link to="/admin-products" className="text-white">
-                                <div className="text-4xl font-semibold">{totalProducts} Product</div>
+                                <div className="text-4xl font-semibold">{totalProducts} Items</div>
                                 <div className="text-sm mt-2">View Products</div>
                             </Link>
                         </div>
@@ -157,7 +144,7 @@ function AdminHome() {
                     <div className="col-span-1">
                         <div className="bg-yellow-500 p-5 rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300 ease-in-out">
                             <Link to="/admin-users" className="text-white">
-                                <div className="text-4xl font-semibold">{totalUsers} User</div>
+                                <div className="text-4xl font-semibold">{totalUsers} Users</div>
                                 <div className="text-sm mt-2">View Users</div>
                             </Link>
                         </div>

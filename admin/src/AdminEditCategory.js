@@ -10,75 +10,67 @@ class AdminEditCategory extends IsLogedIn2 {
     constructor(props) {
         super(props);
         this.state = {
-           id:null,
-           title:null,
-           photo:null,
-           oldphoto:null,
-           islive:null
+            id: null,
+            title: null,
+            photo: null,
+            oldphoto: null,
+            islive: null
         }
     }
 
-    setStatus = (value) =>
-    {
+    setStatus = (value) => {
         this.setState({
-            islive:value
+            islive: value
         });
     }
 
-    updateTitle = (value) =>
-    {
+    updateTitle = (value) => {
         this.setState({
-            title:value
+            title: value
         });
     }
 
-    updatePhoto = (value) =>
-    {
+    updatePhoto = (value) => {
         this.setState({
             photo: value
         });
     }
 
-    UpdateCategory  =  (event) =>
-    {
+    UpdateCategory = (event) => {
         event.preventDefault();
-        console.log(this.state.title,this.state.islive,this.state.photo);
+        console.log(this.state.title, this.state.islive, this.state.photo);
         //call api
         let apiAddress = BaseAddress() + "update_category.php"
         let formData = new FormData();
-        formData.append("id",this.state.id);
-        formData.append("title",this.state.title);
-        formData.append("islive",this.state.islive);
-        formData.append("photo",this.state.photo);
+        formData.append("id", this.state.id);
+        formData.append("title", this.state.title);
+        formData.append("islive", this.state.islive);
+        formData.append("photo", this.state.photo);
 
         axios({
-            method:'post',
-            responseType:'json',
-            url:apiAddress,
-            data:formData,
+            method: 'post',
+            responseType: 'json',
+            url: apiAddress,
+            data: formData,
             config: { header: { 'content-type': 'enctype/form-data' } }
         }).then((response) => {
             console.log(response.data);
-            if(response.status == 200)
-            {
+            if (response.status == 200) {
                 let data = response.data;
-                if(data[0]['error'] != "no")
+                if (data[0]['error'] != "no")
                     alert(data[0]['error']);
-                else if (data[1]['success'] == "no")
-                {
+                else if (data[1]['success'] == "no") {
                     alert(data[2]['message']);
                 }
-                else 
-                {
+                else {
                     alert(data[2]['message']);
                     window.location = "/admin-category";
                 }
             }
         });
     }
-    
-    componentDidMount()
-    {
+
+    componentDidMount() {
         //fetch category data from server of specific category 
         var url = window.location.href;
         var last_slash_position = url.lastIndexOf("/") + 1;
@@ -86,27 +78,27 @@ class AdminEditCategory extends IsLogedIn2 {
         let ApiAddress = BaseAddress() + "category.php?id=" + id;
         let context = this;
         axios({
-            url:ApiAddress,
-            method:'get',
-            responseType:'json',
+            url: ApiAddress,
+            method: 'get',
+            responseType: 'json',
         }).then((response) => {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != "no") {
-                  alert(data[0]['error']);
+                    alert(data[0]['error']);
                 }
                 else if (data[1]['total'] == 0) {
-                  alert('no category found');
+                    alert('no category found');
                 }
                 else {
-                  context.setState({
-                    id : data[2]['id'],
-                    title : data[2]['title'],
-                    oldphoto : data[2]['photo'],
-                    islive : data[2]['islive']
-                  });
+                    context.setState({
+                        id: data[2]['id'],
+                        title: data[2]['title'],
+                        oldphoto: data[2]['photo'],
+                        islive: data[2]['islive']
+                    });
                 }
-              }
+            }
         });
     }
 
@@ -141,38 +133,42 @@ class AdminEditCategory extends IsLogedIn2 {
                                         name="photo"
                                         accept="image/*"
                                     />
-                                    <img src={"http://www.theeasylearnacademy.com/shop/images/category/" + this.state.oldphoto} />
                                 </div>
                                 <div>
-                                    <p><b>Is this category Live?</b></p>
-                                    <div className="mt-2">
-                                        <label htmlFor="yes" className="inline-flex items-center">
-                                            <input
-                                                type="radio"
-                                                className="form-radio text-blue-500"
-                                                name="status"
-                                                id="yes"
-                                                required
-                                                value={1}
-                                            />
-                                            <span className="ml-2 text-gray-100">Yes</span>
-                                        </label>
-                                    </div>
-                                    <div className="mt-2">
-                                        <label htmlFor="no" className="inline-flex items-center">
-                                            <input
-                                                type="radio"
-                                                className="form-radio text-blue-500"
-                                                name="status"
-                                                id="no"
-                                                required
-                                                value={0}
-                                            />
-                                            <span className="ml-2 text-gray-100">No</span>
-                                        </label>
-                                    </div>
+                                <p><b>Is this category Live?</b></p>
+                                <div className="mt-2">
+                                    <label htmlFor="yes" className="inline-flex items-center">
+                                        <input
+                                            type="radio"
+                                            className="form-radio text-blue-500"
+                                            name="status"
+                                            id="yes"
+                                            required
+                                            value={1}
+                                        />
+                                        <span className="ml-2 text-gray-100">Yes</span>
+                                    </label>
+                                </div>
+                                <div className="mt-2">
+                                    <label htmlFor="no" className="inline-flex items-center">
+                                        <input
+                                            type="radio"
+                                            className="form-radio text-blue-500"
+                                            name="status"
+                                            id="no"
+                                            required
+                                            value={0}
+                                        />
+                                        <span className="ml-2 text-gray-100">No</span>
+                                    </label>
                                 </div>
                             </div>
+                            </div>
+                            <div className="mt-2">
+                                <label htmlFor="photo" className="leading-7 text-sm text-gray-400">Old Photo</label>
+                                <img class="h-auto max-w-full rounded round-lg w-56" src={"http://www.theeasylearnacademy.com/shop/images/category/" + this.state.oldphoto} />
+                            </div>
+                           
                             <div className="mt-4">
                                 <button
                                     type="submit"

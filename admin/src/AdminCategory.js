@@ -10,7 +10,7 @@ import { IsLogedIn2 } from './ClassCookies';
 class AdminCategory extends IsLogedIn2 {
 
     DisplayCategory = function (item) {
-        return (<><tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
+        return (<><tr class="bg-indigo-100 border-b dark:bg-indigo-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-600">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {item.id}
             </th>
@@ -72,7 +72,7 @@ class AdminCategory extends IsLogedIn2 {
             <AdminMenu />
             <div className="mx-4 md:mx-16 mt-7">
                 <div className="flex justify-between items-center">
-                    <h1 className="font-bold text-xl">Manage Categories</h1>
+                    <h1 className="font-bold text-xl text-gray-700">Manage Categories</h1>
                     <Link to="/admin-insert-category"><button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Add Category</button></Link>
                 </div>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">

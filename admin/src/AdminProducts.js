@@ -14,26 +14,26 @@ function AdminProducts() {
 
     let DisplayProduct = function (item) {
         return (<>
-            <tr class="bg-white border-b dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <tr class="bg-indigo-100 border-b dark:bg-indigo-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                     {item.id}
                 </th>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                     {item.categorytitle}
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                     {item.title}
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                     <img src={"http://www.theeasylearnacademy.com/shop/images/product/" + item.photo} />
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                     {item.price}
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                     {item.stock}
                 </td>
-                <td class="px- py-4">
+                <td class="px- py-4 text-gray-700">
                     {item.detail}
                 </td>
                 <td class="px-6 py-4">
@@ -76,7 +76,7 @@ function AdminProducts() {
         <AdminMenu />
         <div className="mx-4 md:mx-16 mt-7">
             <div className="flex justify-between items-center">
-                <h1 className="font-bold text-xl">Manage Products</h1>
+                <h1 className="font-bold text-xl text-gray-700">Manage Products</h1>
                 <Link to="/admin-insert-products"><button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Add Product</button></Link>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
