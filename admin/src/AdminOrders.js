@@ -10,26 +10,29 @@ class AdminOrders extends IsLogedIn2 {
 
     DisplayOrders = function (item) {
         return (<>
-            <div
-                class="mx-3 mt-6 flex flex-col rounded-lg bg-indigo-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-gray-900 sm:shrink-0 sm:grow sm:basis-0">
-                {/* <a href="#!">
-                        <img
-                            class="rounded-t-lg"
-                            src="https://tecdn.b-cdn.net/img/new/standard/city/041.webp"
-                            alt="Hollywood Sign on The Hill" />
-                    </a> */}
-                <div class="p-6">
-                    <h5
-                        class="mb-2 text-xl font-medium leading-tight text-gray-700 dark:text-neutral-50">
-                        Name: {item.fullname}
-                    </h5>
-                    <p class="mb-4 text-base text-gray-700 dark:text-neutral-200">
-                    Address: {item.address1} <br/>
+            <tr class="bg-indigo-100 border-b dark:bg-indigo-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {item.id}
+                </th>
+                <td class="px-6 py-4">
+                    {item.fullname} <br/>
+                    {item.address1} <br/>
                     {item.address2} <br/>
                     {item.city} - {item.pincode}
-                    </p>
-                </div>
-            </div>
+                </td>
+                <td class="px-6 py-4">
+                    {item.billdate}
+                </td>
+                <td class="px-6 py-4">
+                    {item.amount}
+                </td>
+                <td class="px-6 py-4">
+                    {item.orderstatus}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                </td>
+            </tr>
         </>)
     }
 
@@ -68,9 +71,38 @@ class AdminOrders extends IsLogedIn2 {
 
     render() {
         return (<>
-            <AdminMenu />
-            <div class="grid-cols-1 sm:grid md:grid-cols-3 ">
-                {this.state.orders.map((item) => this.DisplayOrders(item))}
+          <AdminMenu />
+            <div className="mx-4 md:mx-16 mt-7">
+                <h1 className="mt-7 ml-2 font-bold text-xl text-gray-500">Manage Orders</h1>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center capitalize">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3" width="10%">
+                                    Order Id
+                                </th>
+                                <th scope="col" class="px-6 py-3" width="10%">
+                                    Customer Detail
+                                </th>
+                                <th scope="col" class="px-6 py-3" width="5%">
+                                    Date
+                                </th>
+                                <th scope="col" class="px-6 py-3" width="10%">
+                                    Ammount
+                                </th>
+                                <th scope="col" class="px-6 py-3" width="10%">
+                                    Status
+                                </th>
+                                <th scope="col" class="px-6 py-3" width="10%">
+                                    View Details
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.orders.map((item) => this.DisplayOrders(item))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <Footer />
         </>);
