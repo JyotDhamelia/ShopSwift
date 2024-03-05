@@ -13,34 +13,30 @@ export default function AdminInsertCategory() {
     let [photo, setPhoto] = useState();
     let [isLive, setisLive] = useState(1);
 
-    let InsertCategory = function(event)
-    {
+    let InsertCategory = function (event) {
         event.preventDefault();
         let ApiAddress = BaseAddress() + "insert_category.php";
         let formData = new FormData();
-        formData.append('title',title);
-        formData.append('photo',photo);
-        formData.append('islive',isLive);
+        formData.append('title', title);
+        formData.append('photo', photo);
+        formData.append('islive', isLive);
 
         axios({
             method: 'post',
             url: ApiAddress,
             responseType: 'json',
             data: formData,
-            headers:{
-                'content-type' : 'multipart/form-data'
+            headers: {
+                'content-type': 'multipart/form-data'
             }
         }).then((response) => {
             console.log(response.data);
-            if(response.status == 200)
-            {
+            if (response.status == 200) {
                 let data = response.data;
-                if(data[0]['error'] != 'no')
-                {
+                if (data[0]['error'] != 'no') {
                     alert(data[0]['error']);
                 }
-                else if(data[1]['success'] == 'yes')
-                {
+                else if (data[1]['success'] == 'yes') {
                     alert(data[2]['message']);
                     window.location = 'admin-category';
                 }
@@ -50,17 +46,17 @@ export default function AdminInsertCategory() {
 
     return (<>
         <AdminMenu />
-        <section className="text-gray-400 bg-gray-900 mt-5 flex justify-center items-center capitalize mx-3">
+        <section className="text-gray-400 bg-indigo-200 mt-5 flex justify-center items-center capitalize mx-3">
             <div className="container mx-auto flex flex-col justify-center items-center">
-                <div className="lg:w-2/3 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 w-full">
-                    <h2 className="text-white text-lg font-medium title-font mb-5">Add new category</h2>
+                <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
+                    <h2 className="text-gray-900 text-lg font-bold title-font mb-5">Add new category</h2>
                     <form method='post' onSubmit={(event) => InsertCategory(event)} encType="multipart/form-data">
                         <div className="mb-4">
-                            <label htmlFor="title" className="leading-7 text-sm text-gray-400">Category title</label>
+                            <label htmlFor="title" className="leading-7 text-sm text-gray-900">Category title</label>
                             <input
                                 type="text"
                                 id="title"
-                                className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                 placeholder="Category title"
                                 name="title"
                                 required
@@ -70,11 +66,11 @@ export default function AdminInsertCategory() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label htmlFor="photo" className="leading-7 text-sm text-gray-400">Select Photo</label>
+                                <label htmlFor="photo" className="leading-7 text-sm text-gray-900">Select Photo</label>
                                 <input
                                     type="file"
                                     id="photo"
-                                    className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-blue-900 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                     name="photo"
                                     accept="image/*"
                                     required
@@ -82,12 +78,12 @@ export default function AdminInsertCategory() {
                                 />
                             </div>
                             <div>
-                                <p><b>Is this category Live?</b></p>
+                                <p className="text-gray-900">Is this category Live?</p>
                                 <div className="mt-2">
                                     <label htmlFor="yes" className="inline-flex items-center">
                                         <input
                                             type="radio"
-                                            className="form-radio text-blue-500"
+                                            className="form-radio text-gray-900"
                                             name="status"
                                             id="yes"
                                             defaultChecked
@@ -95,21 +91,21 @@ export default function AdminInsertCategory() {
                                             value='1'
                                             onChange={(event) => setisLive(event.target.value)}
                                         />
-                                        <span className="ml-2 text-gray-100">Yes</span>
+                                        <span className="ml-2 text-gray-900">Yes</span>
                                     </label>
                                 </div>
                                 <div className="mt-2">
                                     <label htmlFor="no" className="inline-flex items-center">
                                         <input
                                             type="radio"
-                                            className="form-radio text-blue-500"
+                                            className="form-radio text-gray-900"
                                             name="status"
                                             id="no"
                                             required
                                             value='0'
                                             onChange={(event) => setisLive(event.target.value)}
                                         />
-                                        <span className="ml-2 text-gray-100">No</span>
+                                        <span className="ml-2 text-gray-900">No</span>
                                     </label>
                                 </div>
                             </div>

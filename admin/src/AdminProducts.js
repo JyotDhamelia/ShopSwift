@@ -33,9 +33,9 @@ function AdminProducts() {
                 <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
                     {item.stock}
                 </td>
-                <td class="px- py-4 text-gray-700">
+                {/* <td class="px- py-4 text-gray-700">
                     {item.detail}
-                </td>
+                </td> */}
                 <td class="px-6 py-4">
                     <a href={"/admin-edit-products/" + item.id} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
@@ -101,9 +101,9 @@ function AdminProducts() {
                             <th scope="col" class="px-6 py-3" width="10%">
                                 Stock
                             </th>
-                            <th scope="col" class="px-6 py-3" width="10%">
+                            {/* <th scope="col" class="px-6 py-3" width="10%">
                                 Details
-                            </th>
+                            </th> */}
                             <th scope="col" class="px-6 py-3" width="10%">
                                 Update
                             </th>
