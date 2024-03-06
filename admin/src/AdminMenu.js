@@ -5,9 +5,9 @@ export default function AdminMenu() {
     return (<>
         <header class="text-gray-900 bg-indigo-300 body-font border-b border-opacity-20">
             <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
-                <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <a href="/admin-home" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                     <div>
-                        <img src="./Images/Shop-Swift.png" height="60" width="60" />
+                        <img src="/Images/Shop-Swift.png" height="60" width="60" />
                     </div>
                     <span class="ml-3 text-xl font-bold">Shop-Swift<span className="text-sm font-semibold"> (Admin Pannel)</span></span>
                 </a>
