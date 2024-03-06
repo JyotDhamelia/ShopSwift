@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import AdminInsertCategory from './AdminInsertCategory';
 import AdminInsertProducts from './AdminInsertProduct';
 import AdminOrders from './AdminOrders';
@@ -12,12 +13,10 @@ import AdminHome from './AdminHome';
 import AdminLogout from './AdminLogout';
 import AdminEditProducts from './AdminEditProducts';
 import AdminEditCategory from './AdminEditCategory';
-import NoPage from './NoPage';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import AdminChangePassword from './AdminChangePassword';
-import ForgotPassword from './ForgotPassword';
+import AdminForgotPassword from './AdminForgotPassword';
 import ViewOrderDetails from './ViewOrderDetails';
-import Footer from './Footer';
+import NoPage from './NoPage';
 
 function MyRoutes()
 {
@@ -35,6 +34,7 @@ function MyRoutes()
             <Route path='/admin-edit-products/:id' element={<AdminEditProducts />} />
             <Route path='/admin-edit-category/:id' element={<AdminEditCategory />} />
             <Route path='/admin-change-password' element={<AdminChangePassword />} />
+            <Route path='/admin-Forgot-password' element={<AdminForgotPassword />} />
             <Route path='/admin-logout' element={<AdminLogout />} />
             <Route path='*' element={<NoPage />}/>
         </Routes>

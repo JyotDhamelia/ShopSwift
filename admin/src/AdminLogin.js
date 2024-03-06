@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import BaseAddress from "./BaseAddress";
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function AdminLogin() {
 
@@ -56,7 +57,7 @@ function AdminLogin() {
                         </div>
                         <button type="submit" className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Log In</button>
                     </form>
-                    <p className="text-s mt-3 text-gray-800">Can't Log In? <a href="" className="text-blue-500 hover:text-blue-700">Recover Account</a></p>
+                    <p className="text-s mt-3 text-gray-800">Can't Log In? <Link to="/admin-forgot-password" className="text-blue-500 hover:text-blue-700">Recover Account</Link></p>
                 </div>
             </div>
         </section>
