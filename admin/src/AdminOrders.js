@@ -6,7 +6,7 @@ import axios from "axios";
 import { IsLogedIn2 } from './ClassCookies';
 import { withCookies } from "react-cookie";
 
-class AdminOrders extends IsLogedIn2 {  
+class AdminOrders extends IsLogedIn2 {
 
     DisplayOrders = function (item) {
         return (<>
@@ -15,9 +15,9 @@ class AdminOrders extends IsLogedIn2 {
                     {item.id}
                 </th>
                 <td class="px-6 py-4">
-                    {item.fullname} <br/>
-                    {item.address1} <br/>
-                    {item.address2} <br/>
+                    {item.fullname} <br />
+                    {item.address1} <br />
+                    {item.address2} <br />
                     {item.city} - {item.pincode}
                 </td>
                 <td class="px-6 py-4">
@@ -71,9 +71,9 @@ class AdminOrders extends IsLogedIn2 {
 
     render() {
         return (<>
-          <AdminMenu />
+            <AdminMenu />
             <div className="mx-4 md:mx-16 mt-7">
-                <h1 className="mt-7 ml-2 font-bold text-xl text-gray-700">Manage Orders</h1>
+                <h1 className="mt-7 font-bold text-xl text-gray-700">Manage Orders</h1>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center capitalize">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

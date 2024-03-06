@@ -1,10 +1,9 @@
 import { useCookies } from "react-cookie";
 
-function AdminLogout()
-{
+function AdminLogout() {
     const [cookies, setCookies, removeCookie] = useCookies('user');
     removeCookie('userid');
-    alert('Logout Successfull');
+    // alert('Logout Successfull');
     window.location = '/';
 }
 

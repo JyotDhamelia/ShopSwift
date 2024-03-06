@@ -30,7 +30,7 @@ function AdminLogin() {
                     alert(data[0]['error']);
                 }
                 else if (data[1]['success'] == 'yes') {
-                    alert(data[2]['message']);
+                    // alert(data[2]['message']);
                     setCookies('userid', data[3]['id'], { path: '/' });
                     window.location = '/admin-home';
                 }
