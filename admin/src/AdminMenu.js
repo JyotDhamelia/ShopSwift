@@ -7,9 +7,9 @@ export default function AdminMenu() {
             <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
                 <a href="/admin-home" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                     <div>
-                        <img src="/Images/Shop-Swift.png" height="60" width="60" />
+                        <img src="/Images/Shop-Swift.jpg" height="60" width="60" />
                     </div>
-                    <span class="ml-3 text-xl font-bold">Shop-Swift<span className="text-sm font-semibold"> (Admin Pannel)</span></span>
+                    <span class="ml-3 text-xl font-bold">Shop-Swift<span className="text-sm font-semibold"> (Admin Panel)</span></span>
                 </a>
                 <nav class="md:ml-auto flex flex-wrap items-center text-base text-gray-900 justify-center">
                     <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-home">Home</Link>

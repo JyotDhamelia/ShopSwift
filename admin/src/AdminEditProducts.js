@@ -108,7 +108,7 @@ function AdminEditProducts() {
                 }
                 alert(data[2]['message']);
                 if (data[1]['success'] == 'yes') {
-                    window.location = "/admin-product";
+                    window.location = "/admin-products";
                 }
             }
         });

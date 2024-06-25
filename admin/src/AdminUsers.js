@@ -21,9 +21,6 @@ class AdminUsers extends IsLogedIn2 {
                     {item.mobile}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-                <td class="px-6 py-4">
                     <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
                 </td>
             </tr>
@@ -80,9 +77,6 @@ class AdminUsers extends IsLogedIn2 {
                                 </th>
                                 <th scope="col" class="px-6 py-3" width="5%">
                                     Mobile
-                                </th>
-                                <th scope="col" class="px-6 py-3" width="10%">
-                                    Update
                                 </th>
                                 <th scope="col" class="px-6 py-3" width="10%">
                                     Remove
