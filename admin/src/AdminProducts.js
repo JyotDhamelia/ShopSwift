@@ -8,6 +8,8 @@ import IsLogedIn from "./FunctionalCookies";
 import showError, { showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { withCookies } from "react-cookie";
+
 
 function AdminProducts() {
   IsLogedIn();
@@ -182,4 +184,4 @@ function AdminProducts() {
     </>
   );
 }
-export default AdminProducts;
+export default withCookies(AdminProducts);
