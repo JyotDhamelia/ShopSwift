@@ -96,7 +96,6 @@ function AdminEditProducts() {
         event.preventDefault();
         let apiAddress = BaseAddress() + "update_product.php";
         let formData = new FormData();
-        // input : name,photo,price,stock,detail,productid,categoryid (required) 
         formData.append("name", title);
         formData.append("photo", photo);
         formData.append("price", price);
