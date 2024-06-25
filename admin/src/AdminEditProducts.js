@@ -8,9 +8,11 @@ import BaseAddress from "./BaseAddress";
 import showError, { showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import IsLogedIn from "./FunctionalCookies";
+
 
 function AdminEditProducts() {
-
+    IsLogedIn();
     let [title, setTitle] = useState('');
     let [categoryid, setCategoryid] = useState('');
     let [category, setCategory] = useState([]);
