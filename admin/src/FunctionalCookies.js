@@ -6,7 +6,7 @@ function IsLogedIn()
     if(cookies.userid === undefined)
     {
         alert("Please Log In");
-        window.location = '/'
+        window.location = '/';
     }
 }
 export default IsLogedIn;
