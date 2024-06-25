@@ -12,7 +12,7 @@ function AdminLogin() {
 
     let ConfirmLogin = function (event) {
         event.preventDefault();
-        var ApiAddress = BaseAddress() + "login.php";
+        var ApiAddress = BaseAddress() + "admin_login.php";
         var formData = new FormData();
         formData.append('email', email);
         formData.append('password', Password);
