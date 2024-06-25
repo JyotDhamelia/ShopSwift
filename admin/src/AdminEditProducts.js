@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import Footer from "./Footer";
 import AdminMenu from "./AdminMenu";
 import { withCookies } from "react-cookie";
-import { IsLogedIn2 } from "./ClassCookies";
 import { useEffect } from "react";
 import axios from "axios";
 import BaseAddress from "./BaseAddress";
+import showError, { showMessage } from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AdminEditProducts() {
 
@@ -34,21 +36,25 @@ function AdminEditProducts() {
             }).then((response) => {
                 if (response.status == 200) {
                     let data = response.data;
-                    if (data[0]['error'] != 'no') {
-                        alert(data[0]['error']);
-                    }
-                    else if (data[1]['total'] == 0) {
-                        alert("No Data Found")
+                    let error = data[0]['error'];
+                    if (error != 'no') {
+                        showError(error);
                     }
                     else {
-                        setTitle(data[2]['title']);
-                        setDetail(data[2]['detail']);
-                        setPrice(data[2]['price']);
-                        setStock(data[2]['stock']);
-                        setCategoryid(data[2]['categoryid']);
-                        setPhoto(data[2]['photo']);
-                        setIsDataFetched(true);
-                    }
+                        let total = data[1]['total'];
+                        if (total === 0) {
+                            showError("no category available");
+                          }
+                          else {
+                            setTitle(data[2]['title']);
+                            setDetail(data[2]['detail']);
+                            setPrice(data[2]['price']);
+                            setStock(data[2]['stock']);
+                            setCategoryid(data[2]['categoryid']);
+                            setPhoto(data[2]['photo']);
+                            setIsDataFetched(true);
+                        }
+                    } 
                 }
             });
         }
@@ -64,16 +70,20 @@ function AdminEditProducts() {
             }).then((response) => {
                 if (response.status == 200) {
                     let data = response.data;
-                    if (data[0]['error'] != 'no') {
-                        alert(data[0]['error']);
+                    let error = data[0]['error'];
+                    if (error != 'no') {
+                        showError(error);
                     }
-                    else if (data[1]['total'] == 0) {
-                        alert("no category found")
-                    }
-                    else {
-                        data.splice(0, 2);
-                        setCategory(data);
-                        setIsDataFetched(true);
+                    else{
+                        let total = data[1]['total'];
+                        if (total === 0 ){
+                            showError("no category found")
+                        }
+                        else {
+                            data.splice(0, 2);
+                            setCategory(data);
+                            setIsDataFetched(true);
+                        }
                     }
                 }
             });
@@ -103,10 +113,14 @@ function AdminEditProducts() {
             console.log(response);
             if (response.status == 200) {
                 let data = response.data;
-                if (data[0]['error'] != "no") {
-                    alert(data[0]['error']);
+                let error = data[0]['error'];
+                if (error != "no") {
+                    alert(error);
                 }
-                alert(data[2]['message']);
+                else{
+                    let message = data[2]['message']
+                    alert(message);
+                }
                 if (data[1]['success'] == 'yes') {
                     window.location = "/admin-products";
                 }
@@ -120,6 +134,7 @@ function AdminEditProducts() {
 
     return (<>
         <AdminMenu />
+        <ToastContainer />
         <div className="bg-indigo-200 capitalize">
             <div className="container mx-auto p-4 flex justify-center items-center">
                 <div className="lg:w-2/3 md:w-3/4 sm:w-full bg-indigo-300 bg-opacity-50 rounded-lg p-4">
