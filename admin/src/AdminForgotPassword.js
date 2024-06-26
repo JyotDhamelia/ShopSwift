@@ -58,7 +58,7 @@ function ForgotPassword() {
 
     return (<>
     <ToastContainer />
-        <section className="bg-indigo-200 body-font mt-7 flex justify-center items-center">
+        <section className="bg-indigo-200 body-font mt-36 flex justify-center items-center">
             <div className="container flex flex-col justify-center items-center mx-auto">
                 <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
                     <h2 className="text-gray-900 text-lg font-bold title-font mb-5 ">Change Password</h2>
