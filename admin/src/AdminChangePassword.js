@@ -6,6 +6,9 @@ import { useCookies } from "react-cookie";
 import { useState } from "react";
 import BaseAddress from "./BaseAddress";
 import IsLogedIn from "./FunctionalCookies";
+import showError, { showMessage } from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ChangePassword() {
 
@@ -24,7 +27,7 @@ function ChangePassword() {
         event.preventDefault();
 
         if (newPassword !== confirmPassword) {
-            alert("New Password & Confirm Password did not matched.");
+            showError("New Password & Confirm Password did not matched.");
             return;
         }
 
@@ -45,10 +48,11 @@ function ChangePassword() {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != 'no') {
-                    alert(data[0]['error']);
+                    showError("Error Occured while changing password");
                 }
                 else if (data[1]['success'] == 'yes') {
-                    alert(data[2]['message']);
+                    let message = data[2]['message'];
+                    showMessage(message);
                     window.location = '/admin-home';
                 }
             }
@@ -58,6 +62,7 @@ function ChangePassword() {
 
     return (<>
         <AdminMenu />
+        <ToastContainer />
         <section className="bg-indigo-200 body-font mt-7 flex justify-center items-center">
             <div className="container flex flex-col justify-center items-center mx-auto">
                 <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">

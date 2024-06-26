@@ -5,6 +5,9 @@ import axios from "axios";
 import BaseAddress from "./BaseAddress";
 import { IsLogedIn2 } from './ClassCookies';
 import { withCookies } from "react-cookie";
+import showError, { showMessage } from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class AdminUsers extends IsLogedIn2 {
 
@@ -21,7 +24,7 @@ class AdminUsers extends IsLogedIn2 {
                     {item.mobile}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                    <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
                 </td>
             </tr>
         </>);
@@ -45,10 +48,10 @@ class AdminUsers extends IsLogedIn2 {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != 'no') {
-                    alert(data[0]['error']);
+                    showError(data[0]['error']);
                 }
                 else if (data[1]['total'] == 0) {
-                    alert("No Data Found");
+                    showError("No Data Found");
                 }
                 else {
                     data.splice(0, 2);
@@ -63,6 +66,7 @@ class AdminUsers extends IsLogedIn2 {
     render() {
         return (<>
             <AdminMenu />
+            <ToastContainer />
             <div className="mx-4 md:mx-16 mt-7">
                 <h1 className="mt-7 font-bold text-xl text-gray-700">Manage Users</h1>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
@@ -79,7 +83,7 @@ class AdminUsers extends IsLogedIn2 {
                                     Mobile
                                 </th>
                                 <th scope="col" class="px-6 py-3" width="10%">
-                                    Remove
+                                    View Details
                                 </th>
                             </tr>
                         </thead>
