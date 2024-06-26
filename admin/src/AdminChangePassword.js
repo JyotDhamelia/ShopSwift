@@ -52,6 +52,7 @@ function ChangePassword() {
                     window.location = '/admin-home';
                 }
             }
+            window.location = '/admin-home';
         });
     };
 
@@ -61,7 +62,7 @@ function ChangePassword() {
             <div className="container flex flex-col justify-center items-center mx-auto">
                 <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
                     <h2 className="text-gray-900 text-lg font-bold title-font mb-5 ">Change Password</h2>
-                    <form method="post" encType="multipart/form/data" onSubmit={(event) => ChangePassword(event)}>
+                    <form method="post" onSubmit={(event) => ChangePassword(event)}>
                         <div className="relative mb-4">
                             <label htmlFor="email" className="leading-7 text-sm text-gray-900">Current Password</label>
                             <input type="password" id="currentpassword" name="currentpassword" className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required value={currentPassword}
