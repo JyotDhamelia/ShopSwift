@@ -15,7 +15,8 @@ import AdminEditProducts from './AdminEditProducts';
 import AdminEditCategory from './AdminEditCategory';
 import AdminChangePassword from './AdminChangePassword';
 import AdminForgotPassword from './AdminForgotPassword';
-import ViewOrderDetails from './ViewOrderDetails';
+import AdminViewOrderDetails from './AdminViewOrderDetails';
+import AdminViewUserDetails from './AdminViewUserDetails';
 import NoPage from './NoPage';
 
 function MyRoutes()
