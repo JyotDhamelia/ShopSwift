@@ -36,6 +36,8 @@ function MyRoutes()
             <Route path='/admin-edit-category/:id' element={<AdminEditCategory />} />
             <Route path='/admin-change-password' element={<AdminChangePassword />} />
             <Route path='/admin-Forgot-password' element={<AdminForgotPassword />} />
+            <Route path='/admin-view-orders/:id' element={<AdminViewOrderDetails />} />
+            <Route path='/admin-view-users/:id' element={<AdminViewUserDetails />} />
             <Route path='/admin-logout' element={<AdminLogout />} />
             <Route path='*' element={<NoPage />}/>
         </Routes>
