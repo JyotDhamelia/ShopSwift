@@ -4,6 +4,9 @@ import Footer from "./Footer";
 import BaseAddress from "./BaseAddress";
 import axios from "axios";
 import IsLogedIn from "./FunctionalCookies";
+import showError, { showMessage } from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AdminInsertProducts() {
 
@@ -29,10 +32,10 @@ export default function AdminInsertProducts() {
                 if (response.status == 200) {
                     let data = response.data;
                     if (data[0]['error'] != 'no') {
-                        alert(data[0]['error']);
+                        showError("Error Occured while fetching categories");
                     }
                     else if (data[1]['total'] == 0) {
-                        alert("No Data Found");
+                        showError("No Data Found");
                     }
                     else {
                         data.splice(0, 2);
@@ -64,9 +67,10 @@ export default function AdminInsertProducts() {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != 'no')
-                    alert(data[0]['error']);
+                    showError("Could not insert Product");
                 else if (data[1]['success'] == 'yes') {
-                    alert(data[2]['message']);
+                    let message = data[2]['message'];
+                    showMessage(message);
                     window.location = '/admin-products';
                 }
             }
@@ -74,6 +78,7 @@ export default function AdminInsertProducts() {
     }
     return (<>
         <AdminMenu />
+        <ToastContainer />
         <div className="bg-indigo-200 capitalize">
             <div className="container mx-auto p-5 flex justify-center items-center">
                 <div className="lg:w-2/3 md:w-3/4 sm:w-full bg-indigo-300 bg-opacity-50 rounded-lg p-4">

@@ -6,6 +6,9 @@ import { useCookies } from "react-cookie";
 import IsLogedIn from "./FunctionalCookies";
 import BaseAddress from "./BaseAddress";
 import axios from "axios";
+import showError, { showMessage } from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AdminHome() {
 
@@ -27,10 +30,10 @@ function AdminHome() {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != 'no') {
-                    alert(data[0]['error']);
+                    showError("Error Occured while fetching categories");
                 }
                 else if (data[1]['total'] == 0) {
-                    alert("No Data Found");
+                    showError("No Data Found");
                 }
                 else {
                     setTotalcategories(data[1]['total']);
@@ -51,10 +54,10 @@ function AdminHome() {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != 'no') {
-                    alert(data[0]['error']);
+                    showError("Error Ocuured while fetching orders");
                 }
                 else if (data[1]['total'] == 0) {
-                    alert("No Data Found");
+                    showError("No Data Found");
                 }
                 else {
                     setTotalorders(data[1]['total']);
@@ -75,10 +78,10 @@ function AdminHome() {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != "no") {
-                    alert(data[0]['error']);
+                    showError("Error Occured while fetching products");
                 }
                 else if (data[1]['total'] == 0) {
-                    alert("No Data Found")
+                    showError("No Data Found")
                 }
                 else {
                     setTotalproducts(data[1]['total']);
@@ -99,10 +102,10 @@ function AdminHome() {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != 'no') {
-                    alert(data[0]['error']);
+                    showError("Error Occured while fetching users");
                 }
                 else if (data[1]['total'] == 0) {
-                    alert("No Data Found");
+                    showError("No Data Found");
                 }
                 else {
                     setTotalusers(data[1]['total']);
@@ -121,6 +124,7 @@ function AdminHome() {
 
     return (<>
         <AdminMenu />
+        <ToastContainer />
         <div className="container mx-auto mt-28 mb-24">
             <h2 className="text-2xl text-gray-700 font-semibold text-center mb-16">Welcome Admin</h2>
             <div className="flex justify-center">

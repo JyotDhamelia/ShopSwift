@@ -4,6 +4,9 @@ import Footer from "./Footer";
 import IsLogedIn from "./FunctionalCookies";
 import BaseAddress from "./BaseAddress";
 import axios from "axios";
+import showError, { showMessage } from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AdminInsertCategory() {
 
@@ -34,10 +37,11 @@ export default function AdminInsertCategory() {
             if (response.status == 200) {
                 let data = response.data;
                 if (data[0]['error'] != 'no') {
-                    alert(data[0]['error']);
+                    showError("Could not insert Category");
                 }
                 else if (data[1]['success'] == 'yes') {
-                    alert(data[2]['message']);
+                    let message = data[2]['message'];
+                    showMessage(message);
                     window.location = 'admin-category';
                 }
             }
@@ -46,6 +50,7 @@ export default function AdminInsertCategory() {
 
     return (<>
         <AdminMenu />
+        <ToastContainer />
         <section className="text-gray-400 bg-indigo-200 mt-5 flex justify-center items-center capitalize mx-3">
             <div className="container mx-auto flex flex-col justify-center items-center">
                 <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
