@@ -6,7 +6,7 @@ import BaseAddress from "./BaseAddress";
 import showError, { showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { Link } from "react-router-dom";
 
 function ForgotPassword() {
 
@@ -58,7 +58,7 @@ function ForgotPassword() {
 
     return (<>
     <ToastContainer />
-        <section className="bg-indigo-200 body-font mt-36 flex justify-center items-center">
+        <section className="bg-indigo-200 body-font mt-32 flex justify-center items-center">
             <div className="container flex flex-col justify-center items-center mx-auto">
                 <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
                     <h2 className="text-gray-900 text-lg font-bold title-font mb-5 ">Change Password</h2>
@@ -77,6 +77,7 @@ function ForgotPassword() {
                             <input type="password" id="confirmPassword" name="confirmPassword" className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
                         </div>
                         <button type="submit" className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Save New Password</button>
+                        <p className="text-s mt-3 text-gray-800">Go to Login - <Link to="/" className="text-blue-500 hover:text-blue-700">Go Back</Link></p>
                     </form>
                 </div>
             </div>
