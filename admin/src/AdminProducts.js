@@ -41,7 +41,7 @@ function AdminProducts() {
             />
           </td>
           <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
-            {item.price}
+          ₹{item.price}
           </td>
           <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
             {item.stock}
