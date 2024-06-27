@@ -37,9 +37,10 @@ function AdminViewUserDetails() {
           showError("No Data Found");
         }
         else {
-          setId(response.data[2]['id']);
-          setEmail(response.data[2]['email']);
-          setMobile(response.data[2]['mobile']);
+          const foundObject = response.data.find(obj => obj.id === id);
+          setId(foundObject.id);
+          setEmail(foundObject.email);
+          setMobile(foundObject.mobile);
         }
       }
     }).catch((error) => {

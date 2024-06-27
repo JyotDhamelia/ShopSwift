@@ -43,15 +43,16 @@ function AdminViewOrderDetails() {
                     showError("No Data Found");
                 }
                 else {
-                    setId(response.data[2]['id']);
-                    setAddress1(response.data[2]['address1']);
-                    setAddress2(response.data[2]['address2']);
-                    setFullname(response.data[2]['fullname']);
-                    setBilldate(response.data[2]['billdate']);
-                    setCity(response.data[2]['city']);
-                    setAmmount(response.data[2]['amount']);
-                    setOrderstatus(response.data[2]['orderstatus']);
-                    setPincode(response.data[2]['pincode']);  
+                  const foundObject = response.data.find(obj => obj.id === id);
+                  setId(foundObject.id);
+                  setAddress1(foundObject.address1);
+                  setAddress2(foundObject.address2);
+                  setFullname(foundObject.fullname);
+                  setBilldate(foundObject.billdate);
+                  setCity(foundObject.city);
+                  setAmmount(foundObject.amount);
+                  setOrderstatus(foundObject.orderstatus);
+                  setPincode(foundObject.pincode);
                 }
             }
         }).catch((error) => {
@@ -102,7 +103,7 @@ function AdminViewOrderDetails() {
                     <span className='font-semibold'> Address 2 - </span>  {address2}
                     </p>
                     <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
-                    <span className='font-semibold'> City & pin - </span> {city}-{pincode}
+                    <span className='font-semibold'> City & pin - </span> {city}{pincode}
                     </p>
                   </div>
                 </div>
