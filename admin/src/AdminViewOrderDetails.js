@@ -54,7 +54,9 @@ function AdminViewOrderDetails() {
                     setPincode(response.data[2]['pincode']);  
                 }
             }
-        });
+        }).catch((error) => {
+          showError('oops something went wrong, please contact developer....');
+      });
     }
 
     useEffect(() => {
@@ -70,7 +72,7 @@ function AdminViewOrderDetails() {
           <div className="p-10">
             <div className="flex items-center justify-between">
               <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                Latest Order
+              <i class="fa-solid fa-cart-shopping fa-xs"></i> Order Details
               </h5>
               <Link to="/admin-orders" className="block font-sans text-sm font-bold leading-normal text-blue-500 antialiased">
                 View all

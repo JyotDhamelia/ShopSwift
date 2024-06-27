@@ -44,18 +44,18 @@ function AdminProducts() {
           ₹{item.price}
           </td>
           <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
-            {item.stock}
+            {item.stock} Pcs.
           </td>
           {/* <td class="px- py-4 text-gray-700">
             {item.detail}
           </td> */}
           <td class="px-6 py-4">
-            <a
-              href={"/admin-edit-products/" + item.id}
+            <Link
+              to={"/admin-edit-products/" + item.id}
               class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               Edit
-            </a>
+            </Link>
           </td>
           <td class="px-6 py-4">
             <a
@@ -136,10 +136,10 @@ function AdminProducts() {
       <ToastContainer />
       <div className="mx-4 md:mx-16 mt-7">
         <div className="flex justify-between items-center">
-          <h1 className="font-bold text-xl text-gray-700">Manage Products</h1>
+          <h1 className="font-bold text-xl text-gray-700"><i class="fa-solid fa-boxes-packing fa-sm"></i> Manage Products</h1>
           <Link to="/admin-insert-products">
             <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-              Add Product
+            <i class="fa-solid fa-circle-plus fa-xs"></i> Add Product
             </button>
           </Link>
         </div>
@@ -148,31 +148,31 @@ function AdminProducts() {
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Product Id
+                <i class="fa-solid fa-id-card"></i> Product Id
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Category
+                <i class="fa-solid fa-clipboard"></i> Category
                 </th>
                 <th scope="col" class="px-6 py-3" width="5%">
-                  Name
+                <i class="fas fa-list-alt"></i> Name
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Photo
+                <i class="fa-solid fa-image"></i> Photo
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Price
+                <i class="fa fa-money"></i> Price
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Stock
+                <i class="fas fa-warehouse"></i> Stock
                 </th>
                 {/* <th scope="col" class="px-6 py-3" width="10%">
                   Details
                 </th> */}
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Update
+                <i class="fas fa-edit"></i> Update
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Remove
+                <i class="fa-solid fa-trash"></i> Remove
                 </th>
               </tr>
             </thead>

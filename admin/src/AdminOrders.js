@@ -73,28 +73,28 @@ function AdminOrders() {
         <AdminMenu />
         <ToastContainer />
         <div className="mx-4 md:mx-16 mt-7">
-            <h1 className="mt-7 font-bold text-xl text-gray-700">Manage Orders</h1>
+            <h1 className="mt-7 font-bold text-xl text-gray-700"><i class="fa-solid fa-cart-shopping fa-sm"></i> Manage Orders</h1>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center capitalize">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                Order Id
+                            <i class="fa-solid fa-id-card"></i> Order Id
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                Customer Detail
+                            <i class="fas fa-info-circle"></i> Customer Detail
                             </th>
                             <th scope="col" class="px-6 py-3" width="5%">
-                                Date
+                            <i class="fas fa-calendar-alt"></i>  Date
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                Ammount
+                            <i class="fa fa-money"></i> Ammount
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                Status
+                            <i class="fa-solid fa-list-check"></i>  Status
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                View Details
+                            <i class="fa-solid fa-eye"></i>  View Details
                             </th>
                         </tr>
                     </thead>

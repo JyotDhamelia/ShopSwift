@@ -6,6 +6,7 @@ import BaseAddress from "./BaseAddress";
 import showError, { showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 function AdminUsers() {
 
@@ -24,7 +25,7 @@ function AdminUsers() {
                     {item.mobile}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                    <Link to={"/admin-view-users/" + item.id} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
                 </td>
             </tr>
         </>);
@@ -60,22 +61,22 @@ function AdminUsers() {
         <AdminMenu />
         <ToastContainer />
         <div className="mx-4 md:mx-16 mt-7">
-            <h1 className="mt-7 font-bold text-xl text-gray-700">Manage Users</h1>
+            <h1 className="mt-7 font-bold text-xl text-gray-700"><i class="fas fa-user fa-sm"></i> Manage Users</h1>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center capitalize">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                User Id
+                            <i class="fa-solid fa-id-card"></i> User Id
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                Email
+                            <i class="fa-solid fa-envelope"></i> Email
                             </th>
                             <th scope="col" class="px-6 py-3" width="5%">
-                                Mobile
+                            <i class="fa-solid fa-mobile"></i> Mobile
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                View Details
+                            <i class="fa-solid fa-eye"></i> View Details
                             </th>
                         </tr>
                     </thead>

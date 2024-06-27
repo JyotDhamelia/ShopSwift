@@ -12,13 +12,14 @@ export default function AdminMenu() {
                     <span class="ml-3 text-xl font-bold">Shop-Swift<span className="text-sm font-semibold"> (Admin Panel)</span></span>
                 </a>
                 <nav class="md:ml-auto flex flex-wrap items-center text-base text-gray-900 justify-center">
-                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-home">Home</Link>
-                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-category">Categories</Link>
-                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-products">Products</Link>
-                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-users">Customers</Link>
-                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-orders">Orders</Link>
-                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-change-password">Change Password</Link>
-                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-logout">Log Out</Link>
+                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-home"><i class="fas fa-home fa-2xs"></i> Home</Link>
+                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-category"><i class="fa-solid fa-boxes-packing fa-2xs"></i> Categories</Link>
+                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-products"><i class="fa-solid fa-boxes-packing fa-2xs"></i> Products</Link>
+                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-users"><i class="fas fa-user fa-2xs"></i> Customers</Link>
+                    <Link class="mr-5 text-gray-900 hover:text-gray-600 font-bold" to="/admin-orders"><i class="fa-solid fa-cart-shopping fa-2xs"></i> Orders</Link>
+                    <Link class="mr-3 text-gray-900 hover:text-gray-600 font-bold" to="/admin-change-password"><i class="fa-solid fa-key fa-2xs"></i> Change Password</Link>
+                    <span className="text-gray-900 font-bold">|</span>
+                    <Link class="ml-3 text-gray-900 hover:text-gray-600 font-bold" to="/admin-logout">Log Out  <i class="fa-solid fa-right-from-bracket fa-2xs"></i></Link>
                 </nav>
             </div>
         </header>

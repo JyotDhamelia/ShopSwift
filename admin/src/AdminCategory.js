@@ -116,10 +116,10 @@ function AdminCategory() {
       <ToastContainer />
       <div className="mx-4 md:mx-16 mt-7">
         <div className="flex justify-between items-center">
-          <h1 className="font-bold text-xl text-gray-700">Manage Categories</h1>
+          <h1 className="font-bold text-xl text-gray-700"><i class="fa-solid fa-boxes-packing fa-sm"></i> Manage Categories</h1>
           <Link to="/admin-insert-category">
             <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-              Add Category
+            <i class="fa-solid fa-circle-plus fa-xs"></i> Add Category
             </button>
           </Link>
         </div>
@@ -128,22 +128,22 @@ function AdminCategory() {
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Category Id
+                <i class="fa-solid fa-id-card"></i> Category Id
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Name
+                <i class="fas fa-list-alt"></i> Name
                 </th>
                 <th scope="col" class="px-6 py-3" width="5%">
-                  Photo
+                <i class="fa-solid fa-image"></i> Photo
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Available
+                <i class="fa-solid fa-list-check"></i> Available
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Update
+                <i class="fas fa-edit"></i> Update
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                  Remove
+                <i class="fa-solid fa-trash"></i> Remove
                 </th>
               </tr>
             </thead>

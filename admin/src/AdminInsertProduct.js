@@ -82,7 +82,7 @@ export default function AdminInsertProducts() {
         <div className="bg-indigo-200 capitalize">
             <div className="container mx-auto p-5 flex justify-center items-center">
                 <div className="lg:w-2/3 md:w-3/4 sm:w-full bg-indigo-300 bg-opacity-50 rounded-lg p-4">
-                    <h2 className="text-gray-900 text-lg font-bold title-font mb-4">Add new product</h2>
+                    <h2 className="text-gray-900 text-lg font-bold title-font mb-4"><i class="fa-solid fa-circle-plus fa-sm"></i> Add new product</h2>
                     <form method="post" encType="multipart/form-data" onSubmit={(event) => InsertProducts(event)}>
                         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="mb-4">

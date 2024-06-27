@@ -54,7 +54,7 @@ export default function AdminInsertCategory() {
         <section className="text-gray-400 bg-indigo-200 mt-5 flex justify-center items-center capitalize mx-3">
             <div className="container mx-auto flex flex-col justify-center items-center">
                 <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
-                    <h2 className="text-gray-900 text-lg font-bold title-font mb-5">Add new category</h2>
+                    <h2 className="text-gray-900 text-lg font-bold title-font mb-5"><i class="fa-solid fa-circle-plus fa-sm"></i> Add new category</h2>
                     <form method='post' onSubmit={(event) => InsertCategory(event)} encType="multipart/form-data">
                         <div className="mb-4">
                             <label htmlFor="title" className="leading-7 text-sm text-gray-900">Category title</label>

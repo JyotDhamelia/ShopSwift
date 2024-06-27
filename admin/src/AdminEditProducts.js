@@ -139,7 +139,7 @@ function AdminEditProducts() {
         <div className="bg-indigo-200 capitalize">
             <div className="container mx-auto p-4 flex justify-center items-center">
                 <div className="lg:w-2/3 md:w-3/4 sm:w-full bg-indigo-300 bg-opacity-50 rounded-lg p-4">
-                    <h2 className="text-gray-900 text-lg font-bold title-font mb-5">Edit product</h2>
+                    <h2 className="text-gray-900 text-lg font-bold title-font mb-5"><i class="fas fa-edit fa-sm"></i> Edit product</h2>
                     <form method="post" onSubmit={(event) => UpdateProduct(event)}>
                         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="mb-4">
@@ -183,7 +183,7 @@ function AdminEditProducts() {
                                 <textarea className="w-full bg-gray-600 bg-opacity-20  focus:ring-2 focus:ring-blue-400 rounded border border-gray-600 focus:border-blue-500 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-900" placeholder="Product description" id="detail" style={{ "height": "80px" }} name="detail" required value={detail} onChange={(event) => setDetail(event.target.value)} />
                                 <div className="mb-4">
                                     <div className="pt-4">
-                                        <button type="submit" className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg w-full">Save Changes</button>
+                                        <button type="submit" className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg w-full"><i class="fas fa-save fa-sm"></i> Save Changes</button>
                                     </div>
                                 </div>
                             </div>

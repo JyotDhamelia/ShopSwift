@@ -103,7 +103,7 @@ function AdminEditCategory() {
                 <div className="container mx-auto flex flex-col justify-center items-center">
                     <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
                         <h2 className="text-gray-900 text-lg font-bold title-font mb-5">
-                            Edit category
+                        <i class="fas fa-edit fa-sm"></i> Edit category
                         </h2>
                         <form onSubmit={UpdateCategory}>
                             <div className="mb-4">
@@ -195,7 +195,7 @@ function AdminEditCategory() {
                                     type="submit"
                                     className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg w-full"
                                 >
-                                    Save Changes
+                                   <i class="fas fa-save fa-sm"></i> Save Changes
                                 </button>
                             </div>
                         </form>

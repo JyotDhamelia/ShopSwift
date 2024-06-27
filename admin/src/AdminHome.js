@@ -126,7 +126,7 @@ function AdminHome() {
         <AdminMenu />
         <ToastContainer />
         <div className="container mx-auto mt-28 mb-24">
-            <h2 className="text-2xl text-gray-700 font-semibold text-center mb-16">Welcome Admin</h2>
+            <h2 className="text-2xl text-gray-700 font-semibold text-center mb-16"><i class="fa-solid fa-face-smile fa-sm"></i> Welcome Admin</h2>
             <div className="flex justify-center">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-1">
