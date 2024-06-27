@@ -35,7 +35,7 @@ function AdminCategory() {
               }
             />
           </td>
-          <td className="px-6 py-4">{item.islive === 1 ? 'Yes' : 'No'}</td>
+          <td className="px-6 py-4">{item.islive == 1 ? 'Yes' : 'No'}</td>
           <td class="px-6 py-4">
             <Link
               to={"/admin-edit-category/" + item.id}
