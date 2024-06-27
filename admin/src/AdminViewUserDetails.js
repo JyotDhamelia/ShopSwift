@@ -62,7 +62,7 @@ function AdminViewUserDetails() {
               <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
               <i class="fas fa-user fa-xs"></i> User Details
               </h5>
-              <Link to="/admin-users" className="block font-sans text-sm font-bold leading-normal text-blue-500 antialiased">
+              <Link to="/admin-users" className="block font-sans text-sm font-bold leading-normal text-blue-500 antialiased hover:underline">
                 View all
               </Link>
             </div>

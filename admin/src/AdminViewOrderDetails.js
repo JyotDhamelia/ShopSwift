@@ -4,7 +4,7 @@ import AdminMenu from './AdminMenu';
 import Footer from './Footer';
 import BaseAddress from "./BaseAddress";
 import axios from "axios";
-import showError, { showMessage } from "./toast-message";
+import showError from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import IsLogedIn from './FunctionalCookies';
@@ -68,13 +68,13 @@ function AdminViewOrderDetails() {
       <AdminMenu />
       <ToastContainer/>
       <div className="flex items-center justify-center bg-indigo-200 mt-36 mb-15">
-        <div className="relative flex w-96 flex-col rounded-xl bg-indigo-100 bg-clip-border text-gray-700 shadow-md">
+        <div className="relative flex w-104 flex-col rounded-xl bg-indigo-100 bg-clip-border text-gray-700 shadow-md">
           <div className="p-10">
             <div className="flex items-center justify-between">
               <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
               <i class="fa-solid fa-cart-shopping fa-xs"></i> Order Details
               </h5>
-              <Link to="/admin-orders" className="block font-sans text-sm font-bold leading-normal text-blue-500 antialiased">
+              <Link to="/admin-orders" className="block font-sans text-sm font-bold leading-normal text-blue-500 antialiased hover:underline">
                 View all
               </Link>
             </div>
@@ -83,17 +83,26 @@ function AdminViewOrderDetails() {
                 <div className="flex items-center gap-x-3 mr-5">
                   <img src="/Images/images.jpeg" alt="" className="relative inline-block h-14 w-14 rounded-full object-cover object-center mr-2" />
                   <div>
-                    <h6 className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                      {id} - {fullname}
+                    <h6 className="block font-sans text-base leading-relaxed tracking-normal text-blue-gray-900 antialiased capitalize">
+                    <span className='font-semibold'> Order id - </span> {id} 
                     </h6>
                     <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
-                      {address1}
+                    <span className='font-semibold'> Customer Name - </span>  {fullname}
                     </p>
                     <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
-                      {address2}
+                    <span className='font-semibold'> Bill Date - </span>  {billdate}
                     </p>
                     <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
-                      {city}-{pincode}
+                    <span className='font-semibold'> Order Status - </span>  {orderstatus}
+                    </p>
+                    <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
+                    <span className='font-semibold'> Address 1 - </span>  {address1}
+                    </p>
+                    <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
+                    <span className='font-semibold'> Address 2 - </span>  {address2}
+                    </p>
+                    <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
+                    <span className='font-semibold'> City & pin - </span> {city}-{pincode}
                     </p>
                   </div>
                 </div>
