@@ -65,7 +65,7 @@ function AdminEditProducts() {
     }
 
     let FetchCategoryData = function () {
-        if (IsDataFetched === false) {
+        if (IsDataFetched == false) {
             let apiAddress = BaseAddress() + "category.php";
             axios({
                 url: apiAddress,
