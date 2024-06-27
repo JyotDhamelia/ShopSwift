@@ -67,16 +67,16 @@ function AdminUsers() {
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-id-card"></i> User Id
+                            <i class="fa-solid fa-id-card fa-sm"></i> User Id
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-envelope"></i> Email
+                            <i class="fa-solid fa-envelope fa-sm"></i> Email
                             </th>
                             <th scope="col" class="px-6 py-3" width="5%">
-                            <i class="fa-solid fa-mobile"></i> Mobile
+                            <i class="fa-solid fa-mobile fa-sm"></i> Mobile
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-eye"></i> View Details
+                            <i class="fa-solid fa-eye fa-sm"></i> View Details
                             </th>
                         </tr>
                     </thead>

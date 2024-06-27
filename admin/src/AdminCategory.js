@@ -128,22 +128,22 @@ function AdminCategory() {
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa-solid fa-id-card"></i> Category Id
+                <i class="fa-solid fa-id-card fa-sm"></i> Category Id
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fas fa-list-alt"></i> Name
+                <i class="fas fa-list-alt fa-sm"></i> Name
                 </th>
                 <th scope="col" class="px-6 py-3" width="5%">
-                <i class="fa-solid fa-image"></i> Photo
+                <i class="fa-solid fa-image fa-sm"></i> Photo
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa-solid fa-list-check"></i> Available
+                <i class="fa-solid fa-list-check fa-sm"></i> Available
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fas fa-edit"></i> Update
+                <i class="fas fa-edit fa-sm"></i> Update
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa-solid fa-trash"></i> Remove
+                <i class="fa-solid fa-trash fa-sm"></i> Remove
                 </th>
               </tr>
             </thead>

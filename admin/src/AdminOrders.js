@@ -79,22 +79,22 @@ function AdminOrders() {
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-id-card"></i> Order Id
+                            <i class="fa-solid fa-id-card fa-sm"></i> Order Id
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fas fa-info-circle"></i> Customer Detail
+                            <i class="fas fa-info-circle fa-sm"></i> Customer Detail
                             </th>
                             <th scope="col" class="px-6 py-3" width="5%">
-                            <i class="fas fa-calendar-alt"></i>  Date
+                            <i class="fas fa-calendar-alt fa-sm"></i>  Date
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa fa-money"></i> Ammount
+                            <i class="fa fa-money fa-sm"></i> Ammount
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-list-check"></i>  Status
+                            <i class="fa-solid fa-list-check fa-sm"></i>  Status
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-eye"></i>  View Details
+                            <i class="fa-solid fa-eye fa-sm"></i>  View Details
                             </th>
                         </tr>
                     </thead>
