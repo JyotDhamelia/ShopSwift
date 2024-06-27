@@ -4,7 +4,7 @@ import AdminMenu from './AdminMenu';
 import Footer from './Footer';
 import BaseAddress from "./BaseAddress";
 import axios from "axios";
-import showError, { showMessage } from "./toast-message";
+import showError from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import IsLogedIn from './FunctionalCookies';
@@ -28,12 +28,12 @@ function AdminViewUserDetails() {
       responseType: 'json'
     }).then((response) => {
       console.log(response.data);
-      if (response.status == 200) {
+      if (response.status === 200) {
         let data = response.data;
-        if (data[0]['error'] != 'no') {
+        if (data[0]['error'] !== 'no') {
           showError("Error Occured while fetching users");
         }
-        else if (data[1]['total'] == 0) {
+        else if (data[1]['total'] === 0) {
           showError("No Data Found");
         }
         else {

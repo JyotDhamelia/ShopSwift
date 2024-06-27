@@ -34,12 +34,12 @@ function AdminViewOrderDetails() {
             responseType: 'json'
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     showError("Error Ocuured while fetching orders");
                 }
-                else if (data[1]['total'] == 0) {
+                else if (data[1]['total'] === 0) {
                     showError("No Data Found");
                 }
                 else {
