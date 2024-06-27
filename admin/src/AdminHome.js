@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import { useCookies } from "react-cookie";
 import IsLogedIn from "./FunctionalCookies";
 import BaseAddress from "./BaseAddress";
 import axios from "axios";
-import showError, { showMessage } from "./toast-message";
+import showError from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -27,19 +26,20 @@ function AdminHome() {
             responseType: 'json'
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     showError("Error Occured while fetching categories");
                 }
-                else if (data[1]['total'] == 0) {
+                else if (data[1]['total'] === 0) {
                     showError("No Data Found");
                 }
                 else {
                     setTotalcategories(data[1]['total']);
-                    console.log(totalCategories);
                 }
             }
+        }).catch((error) => {
+            showError('oops something went wrong, please contact developer....');
         });
     }
 
@@ -51,19 +51,20 @@ function AdminHome() {
             responseType: 'json'
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     showError("Error Ocuured while fetching orders");
                 }
-                else if (data[1]['total'] == 0) {
+                else if (data[1]['total'] === 0) {
                     showError("No Data Found");
                 }
                 else {
                     setTotalorders(data[1]['total']);
-                    console.log(totalOrders);
                 }
             }
+        }).catch((error) => {
+            showError('oops something went wrong, please contact developer....');
         });
     }
 
@@ -75,19 +76,20 @@ function AdminHome() {
             responseType: 'json'
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != "no") {
+                if (data[0]['error'] !== "no") {
                     showError("Error Occured while fetching products");
                 }
-                else if (data[1]['total'] == 0) {
+                else if (data[1]['total'] === 0) {
                     showError("No Data Found")
                 }
                 else {
                     setTotalproducts(data[1]['total']);
-                    console.log(totalProducts);
                 }
             }
+        }).catch((error) => {
+            showError('oops something went wrong, please contact developer....');
         });
     }
 
@@ -99,19 +101,20 @@ function AdminHome() {
             responseType: 'json'
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     showError("Error Occured while fetching users");
                 }
-                else if (data[1]['total'] == 0) {
+                else if (data[1]['total'] === 0) {
                     showError("No Data Found");
                 }
                 else {
                     setTotalusers(data[1]['total']);
-                    console.log(totalUsers);
                 }
             }
+        }).catch((error) => {
+            showError('oops something went wrong, please contact developer....');
         });
     }
 

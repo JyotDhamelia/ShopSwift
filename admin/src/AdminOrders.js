@@ -43,7 +43,7 @@ function AdminOrders() {
         </>)
     }
 
-    useEffect(() => {
+    let FetchOrders = function(){
         let Apiaddress = BaseAddress() + "orders.php";
         axios({
             method: 'get',
@@ -51,12 +51,12 @@ function AdminOrders() {
             responseType: 'json'
         }).then((response) => {
             console.log(response);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     showError("Error While Feching Orders");
                 }
-                else if (data[1]['total'] == 0) {
+                else if (data[1]['total'] === 0) {
                     showError("No Data Found");
                 }
                 else {
@@ -67,6 +67,10 @@ function AdminOrders() {
         }).catch((error) => {
             showError('oops something went wrong, please contact developer....');
         });
+    }
+
+    useEffect(() => {
+        FetchOrders();
     });
 
     return (<>
@@ -85,16 +89,16 @@ function AdminOrders() {
                             <i class="fas fa-info-circle fa-sm"></i> Customer Detail
                             </th>
                             <th scope="col" class="px-6 py-3" width="5%">
-                            <i class="fas fa-calendar-alt fa-sm"></i>  Date
+                            <i class="fas fa-calendar-alt fa-sm"></i> Date
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
                             <i class="fa fa-money fa-sm"></i> Ammount
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-list-check fa-sm"></i>  Status
+                            <i class="fa-solid fa-list-check fa-sm"></i> Status
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-eye fa-sm"></i>  View Details
+                            <i class="fa-solid fa-eye fa-sm"></i> View Details
                             </th>
                         </tr>
                     </thead>

@@ -20,8 +20,8 @@ export default function AdminInsertProducts() {
     let [photo, setPhoto] = useState();
     let [category, setCategory] = useState([]);
 
-    useEffect(() => {
-        if (category.length == 0) {
+    let FetchCategory = function(){
+        if (category.length === 0) {
             let ApiAddress = BaseAddress() + "category.php";
             axios({
                 method: 'get',
@@ -29,12 +29,12 @@ export default function AdminInsertProducts() {
                 responseType: 'json'
             }).then((response) => {
                 console.log(response);
-                if (response.status == 200) {
+                if (response.status === 200) {
                     let data = response.data;
-                    if (data[0]['error'] != 'no') {
+                    if (data[0]['error'] !== 'no') {
                         showError("Error Occured while fetching categories");
                     }
-                    else if (data[1]['total'] == 0) {
+                    else if (data[1]['total'] === 0) {
                         showError("No Data Found");
                     }
                     else {
@@ -42,8 +42,14 @@ export default function AdminInsertProducts() {
                         setCategory(data);
                     }
                 }
+            }).catch((error) => {
+                showError("oops something went wrong, please contact developer....");
             });
         }
+    }
+
+    useEffect(() => {
+       FetchCategory();
     });
 
     let InsertProducts = function (e) {
@@ -74,6 +80,8 @@ export default function AdminInsertProducts() {
                     window.location = '/admin-products';
                 }
             }
+        }).catch((error) => {
+            showError("oops something went wrong, please contact developer....");
         });
     }
     return (<>

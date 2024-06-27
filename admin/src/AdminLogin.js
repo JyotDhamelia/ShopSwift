@@ -3,6 +3,9 @@ import BaseAddress from "./BaseAddress";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import showError from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AdminLogin() {
 
@@ -24,24 +27,26 @@ function AdminLogin() {
             data: formData
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     alert(data[0]['error']);
                 }
-                else if (data[1]['success'] == 'yes') {
-                    // alert(data[2]['message']);
+                else if (data[1]['success'] === 'yes') {
                     setCookies('userid', data[3]['id'], { path: '/' });
                     window.location = '/admin-home';
                 }
-                else if (data[1]['success'] == 'no') {
+                else if (data[1]['success'] === 'no') {
                     alert(data[2]['message']);
                 }
             }
+        }).catch((error) => {
+            showError("oops something went wrong, please contact developer....");
         });
     }
 
     return (<>
+    <ToastContainer />
         <section className="bg-indigo-200 body-font min-h-screen flex justify-center items-center">
             <div className="container flex flex-col justify-center items-center mx-auto">
                 <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">

@@ -28,24 +28,24 @@ function AdminCategory() {
           </th>
           <td class="px-6 py-4">{item.title}</td>
           <td class="px-6 py-4">
-            <img
+            <img alt=""
               src={
                 "http://www.theeasylearnacademy.com/shop/images/category/" +
                 item.photo
               }
             />
           </td>
-          <td className="px-6 py-4">{item.islive == 1 ? 'Yes' : 'No'}</td>
+          <td className="px-6 py-4">{item.islive === 1 ? 'Yes' : 'No'}</td>
           <td class="px-6 py-4">
-            <a
-              href={"/admin-edit-category/" + item.id}
+            <Link
+              to={"/admin-edit-category/" + item.id}
               class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               Edit
-            </a>
+            </Link>
           </td>
           <td class="px-6 py-4">
-            <a href="" onClick={(e) => DeleteCategory(e, item.id)} class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+            <Link onClick={(e) => DeleteCategory(e, item.id)} class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</Link>
           </td>
         </tr>
       </>
@@ -54,7 +54,7 @@ function AdminCategory() {
 
   let FetchCategory = function () {
     let Apiaddress = BaseAddress() + "category.php";
-    if (category.length == 0) {
+    if (category.length === 0) {
       axios({
         method: "get",
         url: Apiaddress,
@@ -103,11 +103,14 @@ function AdminCategory() {
         showMessage(response.data[1]["message"]);
         setCategory(
           category.filter((item) => {
-            if (item.id !== id) return item;
+            if (item.id !== id) 
+              return item;
           })
         );
       }
-    });
+    }).catch((error) => {
+      showError('oops something went wrong, please contact developer....');
+  });
   }
 
   return (

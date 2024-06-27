@@ -33,7 +33,7 @@ function AdminProducts() {
             {item.title}
           </td>
           <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
-            <img
+            <img alt=""
               src={
                 "http://www.theeasylearnacademy.com/shop/images/product/" +
                 item.photo
@@ -46,9 +46,6 @@ function AdminProducts() {
           <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
             {item.stock} Pcs.
           </td>
-          {/* <td class="px- py-4 text-gray-700">
-            {item.detail}
-          </td> */}
           <td class="px-6 py-4">
             <Link
               to={"/admin-edit-products/" + item.id}
@@ -74,7 +71,6 @@ function AdminProducts() {
   let DeleteProduct = function (e, id) {
     e.preventDefault();
     let apiAddress = BaseAddress() + "delete_product.php?id=" + id;
-    console.log(apiAddress);
     axios({
       method: "get",
       responseType: "json",
@@ -92,12 +88,14 @@ function AdminProducts() {
           })
         );
       }
+    }).catch((error) => {
+      showError('oops something went wrong, please contact developer....');
     });
   };
 
   let FetchProducts = function () {
     let Apiaddress = BaseAddress() + "product.php";
-    if (product.length == 0) {
+    if (product.length === 0) {
       axios({
         method: "get",
         url: Apiaddress,
@@ -165,9 +163,6 @@ function AdminProducts() {
                 <th scope="col" class="px-6 py-3" width="10%">
                 <i class="fas fa-warehouse fa-sm"></i> Stock
                 </th>
-                {/* <th scope="col" class="px-6 py-3" width="10%">
-                  Details
-                </th> */}
                 <th scope="col" class="px-6 py-3" width="10%">
                 <i class="fas fa-edit fa-sm"></i> Update
                 </th>

@@ -11,7 +11,9 @@ import IsLogedIn from "./FunctionalCookies";
 
 
 function AdminEditCategory() {
+   
     IsLogedIn();
+
     let [id, setId] = useState('');
     let [title, setTitle] = useState('');
     let [oldPhoto, setOldPhoto] = useState('');
@@ -36,14 +38,14 @@ function AdminEditCategory() {
             config: { header: { "content-type": "enctype/form-data" } },
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
                 let error = data[0]["error"];
-                if (error != "no")
+                if (error !== "no")
                     alert(error);
                 else {
                     let success = data[1]["success"];
-                    if (success == 'no') {
+                    if (success === 'no') {
                         let message = data[2]["message"];
                         alert(message);
                     }
@@ -54,6 +56,8 @@ function AdminEditCategory() {
                     }
                 } 
             }
+        }).catch((error) => {
+            showError("oops something went wrong, please contact developer....");
         });
     };
 
@@ -70,10 +74,10 @@ function AdminEditCategory() {
                 method: "get",
                 responseType: "json",
             }).then((response) => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     let data = response.data;
                     let error = data[0]["error"];
-                    if (error != "no") {
+                    if (error !== "no") {
                         showError(error);
                     } else {
                         let total = data[1]["total"];
@@ -87,6 +91,8 @@ function AdminEditCategory() {
                         }
                     }
                 }
+            }).catch((error) => {
+                showError("oops something went wrong, please contact developer....");
             });
         }
     }

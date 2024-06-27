@@ -41,12 +41,12 @@ function ForgotPassword() {
             data: formData
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     showError("Error Occured while changing password");
                 }
-                else if (data[1]['success'] == 'yes') {
+                else if (data[1]['success'] === 'yes') {
                     let message = data[2]['message'];
                     showMessage(message);
                     window.location = '/admin-home';

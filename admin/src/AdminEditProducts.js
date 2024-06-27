@@ -5,7 +5,7 @@ import { withCookies } from "react-cookie";
 import { useEffect } from "react";
 import axios from "axios";
 import BaseAddress from "./BaseAddress";
-import showError, { showMessage } from "./toast-message";
+import showError from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import IsLogedIn from "./FunctionalCookies";
@@ -36,18 +36,18 @@ function AdminEditProducts() {
                 method: 'get',
                 encodingType: 'json'
             }).then((response) => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     let data = response.data;
                     let error = data[0]['error'];
-                    if (error != 'no') {
+                    if (error !== 'no') {
                         showError(error);
                     }
                     else {
                         let total = data[1]['total'];
                         if (total === 0) {
                             showError("no category available");
-                          }
-                          else {
+                        }
+                        else {
                             setTitle(data[2]['title']);
                             setDetail(data[2]['detail']);
                             setPrice(data[2]['price']);
@@ -56,29 +56,31 @@ function AdminEditProducts() {
                             setPhoto(data[2]['photo']);
                             setIsDataFetched(true);
                         }
-                    } 
+                    }
                 }
+            }).catch((error) => {
+                showError("oops something went wrong, please contact developer....");
             });
         }
     }
 
     let FetchCategoryData = function () {
-        if (IsDataFetched == false) {
+        if (IsDataFetched === false) {
             let apiAddress = BaseAddress() + "category.php";
             axios({
                 url: apiAddress,
                 method: 'get',
                 encodingType: 'json',
             }).then((response) => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     let data = response.data;
                     let error = data[0]['error'];
-                    if (error != 'no') {
+                    if (error !== 'no') {
                         showError(error);
                     }
-                    else{
+                    else {
                         let total = data[1]['total'];
-                        if (total === 0 ){
+                        if (total === 0) {
                             showError("no category found")
                         }
                         else {
@@ -88,6 +90,8 @@ function AdminEditProducts() {
                         }
                     }
                 }
+            }).catch((error) => {
+                showError("oops something went wrong, please contact developer....");
             });
         }
     }
@@ -112,22 +116,25 @@ function AdminEditProducts() {
             config: { header: { 'content-type': 'enctype/form-data' } }
         }).then((response) => {
             console.log(response);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
                 let error = data[0]['error'];
-                if (error != "no") {
+                if (error !== "no") {
                     alert(error);
                 }
-                else{
+                else {
                     let message = data[2]['message']
                     alert(message);
                 }
-                if (data[1]['success'] == 'yes') {
+                if (data[1]['success'] === 'yes') {
                     window.location = "/admin-products";
                 }
             }
+        }).catch((error) => {
+            showError("oops something went wrong, please contact developer....");
         });
     }
+
     useEffect(() => {
         FetchProductData();
         FetchCategoryData();

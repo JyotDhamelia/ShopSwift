@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
 import IsLogedIn from "./FunctionalCookies";
@@ -34,17 +34,19 @@ export default function AdminInsertCategory() {
             }
         }).then((response) => {
             console.log(response.data);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let data = response.data;
-                if (data[0]['error'] != 'no') {
+                if (data[0]['error'] !== 'no') {
                     showError("Could not insert Category");
                 }
-                else if (data[1]['success'] == 'yes') {
+                else if (data[1]['success'] === 'yes') {
                     let message = data[2]['message'];
                     showMessage(message);
                     window.location = 'admin-category';
                 }
             }
+        }).catch((error) => {
+            showError("oops something went wrong, please contact developer....");
         });
     }
 
