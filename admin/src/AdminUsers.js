@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 function AdminUsers() {
 
     let [users, setUsers] = useState([]);
+    let [userfetched, setUserfetched] = useState('false');
 
     let DisplayUsers = function (item) {
         return (<>
@@ -32,29 +33,32 @@ function AdminUsers() {
     }
 
     let FetchUsers = function () {
-        let Apiaddress = BaseAddress() + "users.php";
-        axios({
-            method: 'get',
-            url: Apiaddress,
-            responseType: 'json'
-        }).then((response) => {
-            console.log(response);
-            if (response.status === 200) {
-                let data = response.data;
-                if (data[0]['error'] !== 'no') {
-                    showError(data[0]['error']);
+        if (userfetched === 'false') {
+            let Apiaddress = BaseAddress() + "users.php";
+            axios({
+                method: 'get',
+                url: Apiaddress,
+                responseType: 'json'
+            }).then((response) => {
+                console.log(response);
+                if (response.status === 200) {
+                    let data = response.data;
+                    if (data[0]['error'] !== 'no') {
+                        showError(data[0]['error']);
+                    }
+                    else if (data[1]['total'] === 0) {
+                        showError("No Data Found");
+                    }
+                    else {
+                        data.splice(0, 2);
+                        setUsers(data);
+                        setUserfetched('true');
+                    }
                 }
-                else if (data[1]['total'] === 0) {
-                    showError("No Data Found");
-                }
-                else {
-                    data.splice(0, 2);
-                    setUsers(data);
-                }
-            }
-        }).catch((error) => {
-            showError('oops something went wrong, please contact developer....');
-        });
+            }).catch((error) => {
+                showError('oops something went wrong, please contact developer....');
+            });
+        }
     }
 
     useEffect(() => {

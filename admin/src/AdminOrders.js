@@ -3,7 +3,7 @@ import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
 import BaseAddress from "./BaseAddress";
 import axios from "axios";
-import showError, { showMessage } from "./toast-message";
+import showError from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ function AdminOrders() {
     IsLogedIn();
 
     let [orders, setOrders] = useState([]);
+    let [orderfetched, setOrderfetched] = useState('false');
 
     let DisplayOrders = function (item) {
         return (<>
@@ -43,30 +44,33 @@ function AdminOrders() {
         </>)
     }
 
-    let FetchOrders = function(){
-        let Apiaddress = BaseAddress() + "orders.php";
-        axios({
-            method: 'get',
-            url: Apiaddress,
-            responseType: 'json'
-        }).then((response) => {
-            console.log(response);
-            if (response.status === 200) {
-                let data = response.data;
-                if (data[0]['error'] !== 'no') {
-                    showError("Error While Feching Orders");
+    let FetchOrders = function () {
+        if (orderfetched === 'false') {
+            let Apiaddress = BaseAddress() + "orders.php";
+            axios({
+                method: 'get',
+                url: Apiaddress,
+                responseType: 'json'
+            }).then((response) => {
+                console.log(response);
+                if (response.status === 200) {
+                    let data = response.data;
+                    if (data[0]['error'] !== 'no') {
+                        showError("Error While Feching Orders");
+                    }
+                    else if (data[1]['total'] === 0) {
+                        showError("No Data Found");
+                    }
+                    else {
+                        data.splice(0, 2);
+                        setOrders(data);
+                        setOrderfetched('true');
+                    }
                 }
-                else if (data[1]['total'] === 0) {
-                    showError("No Data Found");
-                }
-                else {
-                    data.splice(0, 2);
-                    setOrders(data);
-                }
-            }
-        }).catch((error) => {
-            showError('oops something went wrong, please contact developer....');
-        });
+            }).catch((error) => {
+                showError('oops something went wrong, please contact developer....');
+            });
+        }
     }
 
     useEffect(() => {
@@ -83,22 +87,22 @@ function AdminOrders() {
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-id-card fa-sm"></i> Order Id
+                                <i class="fa-solid fa-id-card fa-sm"></i> Order Id
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fas fa-info-circle fa-sm"></i> Customer Detail
+                                <i class="fas fa-info-circle fa-sm"></i> Customer Detail
                             </th>
                             <th scope="col" class="px-6 py-3" width="5%">
-                            <i class="fas fa-calendar-alt fa-sm"></i> Date
+                                <i class="fas fa-calendar-alt fa-sm"></i> Date
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa fa-money fa-sm"></i> Ammount
+                                <i class="fa fa-money fa-sm"></i> Ammount
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-list-check fa-sm"></i> Status
+                                <i class="fa-solid fa-list-check fa-sm"></i> Status
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                            <i class="fa-solid fa-eye fa-sm"></i> View Details
+                                <i class="fa-solid fa-eye fa-sm"></i> View Details
                             </th>
                         </tr>
                     </thead>
