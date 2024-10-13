@@ -59,7 +59,7 @@ Note: this is an admin pannel so it won't be available for all users to login an
  1. Clone the Repository: `https://github.com/JyotDhamelia/ShopSwift.git`
  2. Navigate to the project directory: `cd shopswift`
  3. Navigate to Admin: `cd admin`
- 4. Install Dependacies: `npm install`
+ 4. Install Dependencies: `npm install`
  5. Run the website: `npm start`
  6. Open the website in a browser: `http://localhost:3000`
 
