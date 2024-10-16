@@ -3,7 +3,7 @@
 ![Annotation 2024-10-12 120528](https://github.com/user-attachments/assets/c22e8ac8-7b1d-4dab-8ee1-b5360c88a7fb)
 
 # Live Demo
-- Currently not available   
+- https://shop-swiftweb.vercel.app / https://shop-swift-one.vercel.app   
 
 # Overview
 - ShopSwift is an Ecommerce website for selling things online which people uses in their everyday life. it is an admin panel which will help ShopSwift's Admins to manage all it's operations perfectly.
