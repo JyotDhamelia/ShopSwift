@@ -1,125 +1,98 @@
-import axios from "axios";  
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
-import {getBase} from "./Common";
+import { getBase } from "./Common";
+
 export default function Login() {
-  //declare state variable
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   let [cookies, setCookie] = useCookies(["user"]);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  let VerifyLogin = (event) => {
-      event.preventDefault();
-      var data = new FormData();
-      data.append('email', email);
-      data.append('password', password);
-      var apiAddress = getBase() + "login.php";
-      axios({
-          method: "post",
-          responseType: "json",
-          data: data,
-          url: apiAddress
-      }).then(function (response) {
-          // console.log(response);
-          if (response.status ===  200 ) {
-              let data = response.data;
-              console.log(data);
-              if(data[0]['error']!=='no')
-              {
-                  alert(data[0]['error']);
-              }
-              alert(data[2]['message']);
-              if(data[1]['success']=='yes')
-              {
-                setCookie("userid", data[3]['id']);
-                navigate('/');
-              }
+  const LoginUser = (event) => {
+    event.preventDefault();
+    setErrorMessage(""); // Clear any previous error message
+
+    const data = new FormData();
+    data.append("email", email);
+    data.append("password", password);
+
+    const apiAddress = getBase() + "login.php";
+    axios({
+      method: "post",
+      responseType: "json",
+      data: data,
+      url: apiAddress,
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          const data = response.data;
+          console.log(data);
+
+          if (data[0]["error"] !== "no") {
+            setErrorMessage(data[0]["error"]); // Set the error message
+          } else if (data[1]["success"] === "yes") {
+            setCookie("userid", data[3]['id']);
+            navigate("/");
           }
-      }).catch(function (error) {
-          navigate('/error');
+        }
+      })
+      .catch(() => {
+        setErrorMessage("An error occurred. Please try again later.");
       });
-  }
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <div className="card">
-            <div className="card-body">
-              <div className="text-center mb-4">
-                <h2>Login</h2>
-              </div>
-              <form  onSubmit={(event) => VerifyLogin(event)}>
-                <div className="mb-3">
-                  <label className="form-label" htmlFor="si-email">
-                    Email address
-                  </label>
-                  <input
-                    className="form-control"
-                    type="email"
-                    id="si-email"
-                    placeholder="johndoe@example.com"
-                    required onChange={(event) => setEmail(event.target.value)}
-                  />
-                  <div className="invalid-feedback">
-                    Please provide a valid email address.
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <label className="form-label" htmlFor="si-password">
-                    Password
-                  </label>
-                  <div className="password-toggle">
-                    <input
-                      className="form-control"
-                      type="password"
-                      id="si-password"
-                      required
-                      onChange={(event) => setPassword(event.target.value)}
-                    />
-                    <label
-                      className="password-toggle-btn"
-                      aria-label="Show/hide password"
-                    >
-                      <input
-                        className="password-toggle-check"
-                        type="checkbox"
-                      />
-                      <span className="password-toggle-indicator" />
-                    </label>
-                  </div>
-                </div>
-                <div className="mb-3 d-flex flex-wrap justify-content-between">
-                  <div className="form-check mb-2">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="si-remember"
-                    />
-                    <label className="form-check-label" htmlFor="si-remember">
-                      Remember me
-                    </label>
-                  </div>
-                  <a className="fs-sm" href="/forgot-password">
-                    Forgot password?
-                  </a>
-                </div>
-                <button
-                  className="btn btn-accent btn-shadow d-block w-100"
-                  type="submit"
-                >
-                  Sign in
-                </button>
-              </form>
-            </div>
+  };
 
-            <div className="text-center">
-              <p>
-              Don't have an account? <a href="/register">Register Here</a>
-              </p>
+  return (
+    <div className="d-flex align-items-center justify-content-center vh-100">
+      <div className="card shadow-sm" style={{ maxWidth: "400px", width: "100%" }}>
+        <div className="card-body">
+          <h2 className="text-center mb-4">Login</h2>
+          {errorMessage && <p className="text-danger text-center">{errorMessage}</p>}
+          <form autoComplete="off" onSubmit={LoginUser}>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email address
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="form-control"
+                placeholder="johndoe@example.com"
+                required
+                onChange={(event) => setEmail(event.target.value)}
+              />
             </div>
-            
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="form-control"
+                placeholder="********"
+                required
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <div className="text-end mt-2">
+                <Link to="/forgot-password" className="text-decoration-none">
+                  Forgot Password?
+                </Link>
+              </div>
+            </div>
+            <button type="submit" className="btn btn-primary w-100">
+              Login
+            </button>
+          </form>
+          <div className="text-center mt-3">
+            <p>
+              Don't have an account?{" "}
+              <Link to="/register" className="text-decoration-none">
+                Register Here
+              </Link>
+            </p>
           </div>
         </div>
       </div>

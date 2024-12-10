@@ -3,26 +3,26 @@ import { Link } from "react-router-dom";
 
 export default function Menu() {
   const [cookies] = useCookies(["user"]);
-  const isLoggedIn = cookies['userid'] !== undefined;
+  const isLoggedIn = cookies["userid"] !== undefined;
 
   return (
-    <header
-      className="navbar navbar-expand-lg text-dark shadow-sm"
-      style={{ backgroundColor: "#B3C7F9" }} // Light blue color from the image
-    >
+    <header className="navbar sticky-top navbar-expand-lg bg-white shadow-sm">
       <div className="container">
         {/* Brand with image */}
-        <Link className="navbar-brand d-flex align-items-center text-dark" to="/">
+        <Link
+          className="navbar-brand d-flex align-items-center text-dark"
+          to="/"
+        >
           <img
-            src="./images/Shop-Swift.jpg"
-            alt=""
-            style={{ width: "50px", height: "50px" }}
+            src="/images/Shop-Swift.jpg"
+            style={{ width: "60px", height: "60px" }}
             className="me-2"
           />
-          <span className="fw-bold fs-5">Shop-Swift</span>
+          <span className="fw-bold fs-4">
+            Shop-Swift
+            {/* <span className="fs-6 fw-normal ms-2 text-danger">(User Panel)</span> */}
+          </span>
         </Link>
-
-        {/* Toggle button for smaller screens */}
         <button
           className="navbar-toggler"
           type="button"
@@ -39,29 +39,41 @@ export default function Menu() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link text-dark fw-bold" to="/">
+              <Link className="nav-link text-dark text-danger-hover" to="/">
                 Home
               </Link>
             </li>
             {isLoggedIn ? (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link text-dark fw-bold" to="/cart">
+                  <Link
+                    className="nav-link text-dark text-danger-hover"
+                    to="/cart"
+                  >
                     Cart
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link text-dark fw-bold" to="/wishlist">
+                  <Link
+                    className="nav-link text-dark text-danger-hover"
+                    to="/wishlist"
+                  >
                     Wishlist
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link text-dark fw-bold" to="/checkout">
+                  <Link
+                    className="nav-link text-dark text-danger-hover"
+                    to="/checkout"
+                  >
                     Checkout
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link text-dark fw-bold" to="/logout">
+                  <Link
+                    className="nav-link text-danger text-danger-hover"
+                    to="/logout"
+                  >
                     Logout
                   </Link>
                 </li>
@@ -69,12 +81,18 @@ export default function Menu() {
             ) : (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link text-dark fw-bold" to="/register">
+                  <Link
+                    className="nav-link text-danger text-danger-hover"
+                    to="/register"
+                  >
                     Register
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link text-dark fw-bold" to="/login">
+                  <Link
+                    className="nav-link text-danger text-danger-hover"
+                    to="/login"
+                  >
                     Login
                   </Link>
                 </li>

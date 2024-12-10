@@ -13,6 +13,8 @@ import { CookiesProvider } from "react-cookie";
 import Wishlist from './Wishlist';
 import Checkout from './Checkout';
 import ErrorPage from './errorpage';
+import "./index.css";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 function MyRouter() {
     return (

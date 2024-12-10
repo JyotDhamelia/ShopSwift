@@ -1,30 +1,50 @@
+import React from "react";
+
 export default function ForgotPassword() {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <div className="card">
-            <div className="card-body">
-              <div className="text-center mb-4">
-                <div className="text-center mb-4">
-                  <h2>Forgot Password?</h2>
-                </div>
-                <p>Enter your email to reset your password</p>
-                <form className="">
-                  <input
-                    className="form-control my-3"
-                    type="email"
-                    id="email-reset"
-                    placeholder="johndoe@example.com"
-                    required
-                  />
-
-                  <button className="btn btn-accent" type="submit">
-                    Reset Password
-                  </button>
-                </form>
-              </div>
+    <div className="d-flex align-items-center justify-content-center vh-100">
+      <div className="card shadow-sm" style={{ maxWidth: "400px", width: "100%" }}>
+        <div className="card-body">
+          <h2 className="text-center mb-4">Forgot Password?</h2>
+          <p className="text-center text-muted mb-4">
+            Enter your email to reset your password
+          </p>
+          <form>
+            <div className="mb-3">
+              <label className="form-label">
+                New Password
+              </label>
+              <input
+                type="password"
+                id="password-reset"
+                className="form-control"
+                placeholder="********"
+                required
+              />
             </div>
+            <div className="mb-3">
+              <label className="form-label">
+               Confirm Password
+              </label>
+              <input
+                type="password"
+                id="password-reset"
+                className="form-control"
+                placeholder="********"
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary w-100">
+              Reset Password
+            </button>
+          </form>
+          <div className="text-center mt-3">
+            <p>
+              Remembered your password?{" "}
+              <a href="/login" className="text-decoration-none">
+                Login Here
+              </a>
+            </p>
           </div>
         </div>
       </div>
