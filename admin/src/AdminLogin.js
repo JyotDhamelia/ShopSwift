@@ -30,14 +30,14 @@ function AdminLogin() {
             if (response.status === 200) {
                 let data = response.data;
                 if (data[0]['error'] !== 'no') {
-                    alert(data[0]['error']);
+                    showError(data[0]['error']);
                 }
                 else if (data[1]['success'] === 'yes') {
                     setCookies('userid', data[3]['id'], { path: '/' });
                     window.location = '/admin-home';
                 }
                 else if (data[1]['success'] === 'no') {
-                    alert(data[2]['message']);
+                    showError(data[2]['message']);
                 }
             }
         }).catch((error) => {
