@@ -47,7 +47,7 @@ export default function Wishlist() {
         }).then((response) => {
             if (response.status === 200) {
                 let temp = response.data;
-                if (temp[0]['error'] != "no") //error
+                if (temp[0]['error'] != "no") 
                     showError(temp[0]['error']);
                 else {
                     showMessage("Item moved to cart");
@@ -66,17 +66,15 @@ export default function Wishlist() {
                 <div className="card shadow-sm border-0 d-flex flex-column">
                     <div className="card-body d-flex flex-column">
                         <a href="#" className="d-block mb-3 position-relative">
-                            {/* Image displayed as usual */}
                             <img className="img-fluid rounded-3"
                                 src={getBaseImage() + "product/" + item.photo}
                                 style={{ maxWidth: "100%", height: "200px", objectFit: "cover" }}
                                 onError={(e) => e.target.src = fallbackImage}
                             />
-                            {/* Trash bin icon placed at the top-right corner */}
                             <span className="btn btn-icon btn-danger position-absolute top-0 end-0 py-0 px-1 m-2"
                                 data-bs-toggle="tooltip" title="Remove from Wishlist"
                                 onClick={() => DeleteFromWishlist(item.id)}>
-                                <FaTrash size={10} /> {/* Using the FaTrash icon here */}
+                                <FaTrash size={10} /> 
                             </span>
                         </a>
                         <h5 className="h6 product-title mb-2 text-truncate" style={{ lineHeight: "1.2em" }}>
@@ -125,7 +123,6 @@ export default function Wishlist() {
             <div>
                 <main className="page-wrapper pb-5">
                     <Menu />
-                    {/* Page Title */}
                     <div className="mt-5">
                         <div className="container pt-1">
                             <div className="d-lg-flex justify-content-between pb-1">
@@ -135,7 +132,6 @@ export default function Wishlist() {
                             </div>
                         </div>
                     </div>
-                    {/* Wishlist Items */}
                     <div className="">
                         <div className="container">
                             <div className="row">
