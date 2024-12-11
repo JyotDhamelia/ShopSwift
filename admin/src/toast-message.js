@@ -1,8 +1,9 @@
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
+
 export default function showError(message) {
     toast.error(message, {
         position: "bottom-center",
-        autoClose: false,
+        autoClose: 2000, 
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -11,10 +12,11 @@ export default function showError(message) {
         theme: "colored",
     });
 };
+
 export function showMessage(message) {
     toast.success(message, {
         position: "bottom-center",
-        autoClose: false,
+        autoClose: 1000, 
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
