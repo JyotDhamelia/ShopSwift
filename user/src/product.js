@@ -110,7 +110,7 @@ export default function Product() {
       <div>
       <Menu />
         <main className="page-wrapper pb-5 mt-5">
-          <div style={{ backgroundColor: "#f8d7da" }}>
+          <div>
             <div className="container pt-1">
               <div className="d-lg-flex justify-content-between pb-1">
                 <div className="order-lg-1 pe-lg-4 text-center text-lg-start">

@@ -74,7 +74,7 @@ export default function Category() {
     <>
       <div>
       <Menu />
-        <main className="page-wrapper pb-5" style={{ backgroundColor: "#f8d7da" }}>
+        <main className="page-wrapper pb-5">
           <div className="mt-5">
             <div className="container pt-1">
               <div className="d-lg-flex justify-content-between pb-1">

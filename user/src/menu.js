@@ -6,7 +6,9 @@ export default function Menu() {
   const isLoggedIn = cookies["userid"] !== undefined;
 
   return (
-    <header className="navbar sticky-top navbar-expand-lg bg-white shadow-sm">
+    <div
+      className="navbar sticky-top navbar-expand-lg bg-white shadow-sm"
+    >
       <div className="container">
         {/* Brand with image */}
         <Link
@@ -101,6 +103,6 @@ export default function Menu() {
           </ul>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
