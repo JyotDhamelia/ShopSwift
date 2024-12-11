@@ -28,7 +28,7 @@ function MyRouter() {
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/wishlist' element={<Wishlist />} />
                 <Route path='/product-detail/:productid' element={<ProductDetail />} />
-                <Route path='/error' element={<ErrorPage />} />
+                {/* <Route path='/error' element={<ErrorPage />} /> */}
                 <Route path='*' element={<ErrorPage />} />
             </Routes>
         </BrowserRouter>
