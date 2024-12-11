@@ -3,7 +3,7 @@ import Footer from "./footer";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import { getBase } from "./Common";
+import { getBase, getBaseImage } from "./Common";
 import { useNavigate } from "react-router-dom";
 import showError, { showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
@@ -39,16 +39,16 @@ export default function Cart() {
     return false;
   }
 
-  const fallbackImage = "https://via.placeholder.com/200"; 
+  const fallbackImage = "https://via.placeholder.com/200";
 
   let DisplayItemInCart = function (item) {
     return (
       <div className="d-block d-sm-flex align-items-center py-4 border-bottom">
         <a className="d-block position-relative mb-3 mb-sm-0 me-sm-4 ms-sm-0 mx-auto" href="#" style={{ "width": "12.5rem" }}>
-          <img 
-            className="rounded-3" 
-            src={`https://theeasylearnacademy.com/shop/images/product/${item.photo}`} 
-            alt="Product" 
+          <img
+            className="rounded-3"
+            src={getBaseImage() + "product/" + item.photo}
+            alt="Product"
             onError={(e) => e.target.src = fallbackImage}
           />
           <span className="btn btn-icon btn-danger position-absolute top-0 end-0 py-0 px-1 m-2" data-bs-toggle="tooltip" title="Remove from cart">
