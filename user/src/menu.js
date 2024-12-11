@@ -10,7 +10,7 @@ export default function Menu() {
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center text-dark" to="/">
           <img
-            src="/images/Shop-Swift.jpg"
+            src="/Images/Shop-Swift.jpg"
             style={{ width: "60px", height: "60px" }}
             className="me-2"
           />
