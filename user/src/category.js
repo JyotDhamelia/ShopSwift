@@ -23,8 +23,8 @@ export default function Category() {
                 style={{
                   maxHeight: "100%",
                   width: "100%",
-                  objectFit: "cover", // Ensures the image covers the entire area without overflowing
-                  objectPosition: "center", // Centers the image within the div
+                  objectFit: "cover",
+                  objectPosition: "center",
                 }}
               />
             </a>
@@ -73,7 +73,7 @@ export default function Category() {
   return (
     <>
       <div>
-      <Menu />
+        <Menu />
         <main className="page-wrapper pb-5">
           <div className="mt-5">
             <div className="container pt-1">

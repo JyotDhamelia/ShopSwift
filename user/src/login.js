@@ -13,7 +13,7 @@ export default function Login() {
 
   const LoginUser = (event) => {
     event.preventDefault();
-    setErrorMessage(""); // Clear any previous error message
+    setErrorMessage(""); 
 
     const data = new FormData();
     data.append("email", email);
@@ -30,9 +30,8 @@ export default function Login() {
         if (response.status === 200) {
           const data = response.data;
           console.log(data);
-
           if (data[0]["error"] !== "no") {
-            setErrorMessage(data[0]["error"]); // Set the error message
+            setErrorMessage(data[0]["error"]); 
           } else if (data[1]["success"] === "yes") {
             setCookie("userid", data[3]['id']);
             navigate("/");

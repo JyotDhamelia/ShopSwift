@@ -1,18 +1,24 @@
-import axios from "axios";  
-import { useNavigate } from "react-router-dom";
-export default function ErrorPage() {
-  let navigate = useNavigate();
+import React from "react";
+import { Link } from "react-router-dom";
 
+function NoPage() {
   return (
-    <div className="container">
-      <div className="row mt-5">
-        <div className="col-md-12 text-center">
-            <h3>We're sorry, but our server is currently unavailable. Please try again later.</h3>
-            <a className="text-center" href="/">Return back to Home</a>
-
-            <hr/>
+    <section className="d-flex align-items-center justify-content-center min-vh-100 bg-white">
+      <div className="container text-center">
+        <div className="card shadow-lg border-0" style={{ maxWidth: "600px", margin: "0 auto" }}>
+          <div className="card-body">
+            <h2 className="text-dark mb-4">404 - Page Not Found</h2>
+            <p className="text-muted mb-4">
+              Sorry, the page you are looking for does not exist.
+            </p>
+            <Link to="/" className="btn btn-primary">
+              <i className="fas fa-arrow-left me-2"></i> Go Back to Home
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+
+export default NoPage;

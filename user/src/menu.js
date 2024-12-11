@@ -6,15 +6,9 @@ export default function Menu() {
   const isLoggedIn = cookies["userid"] !== undefined;
 
   return (
-    <div
-      className="navbar sticky-top navbar-expand-lg bg-white shadow-sm"
-    >
+    <div className="navbar sticky-top navbar-expand-lg bg-white shadow-sm">
       <div className="container">
-        {/* Brand with image */}
-        <Link
-          className="navbar-brand d-flex align-items-center text-dark"
-          to="/"
-        >
+        <Link className="navbar-brand d-flex align-items-center text-dark" to="/">
           <img
             src="/images/Shop-Swift.jpg"
             style={{ width: "60px", height: "60px" }}
@@ -22,7 +16,6 @@ export default function Menu() {
           />
           <span className="fw-bold fs-4">
             Shop-Swift
-            {/* <span className="fs-6 fw-normal ms-2 text-danger">(User Panel)</span> */}
           </span>
         </Link>
         <button
@@ -37,7 +30,6 @@ export default function Menu() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar Items */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -61,14 +53,6 @@ export default function Menu() {
                     to="/wishlist"
                   >
                     Wishlist
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className="nav-link text-dark text-danger-hover"
-                    to="/checkout"
-                  >
-                    Checkout
                   </Link>
                 </li>
                 <li className="nav-item">

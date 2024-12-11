@@ -2,6 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getBase } from "./Common";
+import showError, { showMessage } from "./toast-message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -14,7 +17,7 @@ export default function Register() {
     event.preventDefault();
 
     if (password !== confirmpassword) {
-      alert("Password and confirm password do not match.");
+      showError("Password and confirm password do not match.");
     } else {
       const data = new FormData();
       data.append("email", email);
@@ -34,10 +37,10 @@ export default function Register() {
             console.log(data);
 
             if (data[0]["error"] !== "no") {
-              alert(data[0]["error"]);
+              showError(data[0]["error"]);
             }
 
-            alert(data[2]["message"]);
+            showError(data[2]["message"]);
 
             if (data[1]["success"] === "yes") {
               navigate("/login");
@@ -51,7 +54,9 @@ export default function Register() {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center vh-100">
+<>
+<ToastContainer />
+<div className="d-flex align-items-center justify-content-center vh-100">
       <div className="card shadow-sm" style={{ maxWidth: "400px", width: "100%" }}>
         <div className="card-body">
           <h2 className="text-center mb-4">Register</h2>
@@ -123,5 +128,6 @@ export default function Register() {
         </div>
       </div>
     </div>
+</>
   );
 }

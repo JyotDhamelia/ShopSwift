@@ -11,7 +11,6 @@ import Cart from './cart';
 import ForgotPassword from './forgot_password';
 import { CookiesProvider } from "react-cookie";
 import Wishlist from './Wishlist';
-import Checkout from './Checkout';
 import ErrorPage from './errorpage';
 import "./index.css";
 
@@ -24,13 +23,12 @@ function MyRouter() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/logout' element={<Logout />} />
-                <Route path='/checkout' element={<Checkout />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path='/product/:id' element={<Product />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/wishlist' element={<Wishlist />} />
                 <Route path='/product-detail/:productid' element={<ProductDetail />} />
-                <Route path='/error' element={<ErrorPage />} />
+                <Route path='*' element={<ErrorPage />}/>
             </Routes>
         </BrowserRouter>
     );

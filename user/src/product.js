@@ -12,6 +12,8 @@ export default function Product() {
   const [products, setProducts] = useState([]);
   const [message, setMessage] = useState("");
 
+  const fallbackImage = "https://via.placeholder.com/200";
+
   const AddToCartOrWishList = (productId, apiAddress) => {
     let userId = cookies["userid"];
     apiAddress = getBase() + `${apiAddress}?productid=${productId}&usersid=${userId}`;
@@ -46,6 +48,7 @@ export default function Product() {
                   objectFit: "cover",
                   objectPosition: "center",
                 }}
+                onError={(e) => e.target.src = fallbackImage}
               />
             </a>
           </div>
@@ -96,7 +99,7 @@ export default function Product() {
             } else if (data[1]["total"] === 0) {
               setMessage("No products found");
             } else {
-              data.splice(0, 2); // Remove first two elements
+              data.splice(0, 2);
               setProducts(data);
             }
           }
@@ -108,7 +111,7 @@ export default function Product() {
   return (
     <>
       <div>
-      <Menu />
+        <Menu />
         <main className="page-wrapper pb-5 mt-5">
           <div>
             <div className="container pt-1">
