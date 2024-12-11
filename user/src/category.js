@@ -16,7 +16,7 @@ export default function Category() {
             <a className="d-block mt-3" href={"/product/" + category.id}>
               <img
                 src={
-                  "http://theeasylearnacademy.com/shop/images/category/" +
+                  "https://theeasylearnacademy.com/shop/images/category/" +
                   category.photo
                 }
                 alt={category.title}
