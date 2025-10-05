@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { getBase } from "./Common";
+import { getBase } from "../helpers/Common";
+import { toast } from "../helpers/toastHelper";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   let [cookies, setCookie] = useCookies(["user"]);
   const navigate = useNavigate();
 
   const LoginUser = (event) => {
-    event.preventDefault();
-    setErrorMessage(""); 
+    event.preventDefault(); 
 
     const data = new FormData();
     data.append("email", email);
@@ -31,15 +30,16 @@ export default function Login() {
           const data = response.data;
           console.log(data);
           if (data[0]["error"] !== "no") {
-            setErrorMessage(data[0]["error"]); 
+            toast.error(data[0]["error"]); 
           } else if (data[1]["success"] === "yes") {
             setCookie("userid", data[3]['id']);
+            toast.success("login successful!");
             navigate("/");
           }
         }
       })
       .catch(() => {
-        setErrorMessage("An error occurred. Please try again later.");
+        toast.error("an error occurred. please try again later.");
       });
   };
 
@@ -48,7 +48,6 @@ export default function Login() {
       <div className="card shadow-sm" style={{ maxWidth: "400px", width: "100%" }}>
         <div className="card-body">
           <h2 className="text-center mb-4">Login</h2>
-          {errorMessage && <p className="text-danger text-center">{errorMessage}</p>}
           <form autoComplete="off" onSubmit={LoginUser}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">

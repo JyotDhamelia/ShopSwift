@@ -1,6 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "../helpers/toastHelper";
 
 export default function ForgotPassword() {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (!password || !confirmPassword) {
+      toast.error("please fill all fields");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("passwords do not match");
+      return;
+    }
+
+    if (password.length < 6) {
+      toast.error("password must be at least 6 characters");
+      return;
+    }
+
+    // Simulate password reset
+    toast.success("password reset successful! please login.");
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 2000);
+  };
+
   return (
     <div className="d-flex align-items-center justify-content-center vh-100">
       <div className="card shadow-sm" style={{ maxWidth: "400px", width: "100%" }}>
@@ -9,16 +39,17 @@ export default function ForgotPassword() {
           <p className="text-center text-muted mb-4">
             Enter your email to reset your password
           </p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">
                 New Password
               </label>
               <input
                 type="password"
-                id="password-reset"
                 className="form-control"
                 placeholder="********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
@@ -28,9 +59,10 @@ export default function ForgotPassword() {
               </label>
               <input
                 type="password"
-                id="password-reset"
                 className="form-control"
                 placeholder="********"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
             </div>
@@ -41,9 +73,9 @@ export default function ForgotPassword() {
           <div className="text-center mt-3">
             <p>
               Remembered your password?{" "}
-              <a href="/login" className="text-decoration-none">
+              <Link to="/login" className="text-decoration-none">
                 Login Here
-              </a>
+              </Link>
             </p>
           </div>
         </div>
