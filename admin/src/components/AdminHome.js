@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import IsLogedIn from "./FunctionalCookies";
-import BaseAddress from "./BaseAddress";
+import IsLogedIn from "../helpers/FunctionalCookies";
+import BaseAddress from "../helpers/BaseAddress";
 import axios from "axios";
-import showError from "./toast-message";
+import showError from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

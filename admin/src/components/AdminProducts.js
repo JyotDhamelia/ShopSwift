@@ -2,10 +2,10 @@ import { React, useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
 import axios from "axios";
-import BaseAddress from "./BaseAddress";
+import BaseAddress from "../helpers/BaseAddress";
 import { Link } from "react-router-dom";
-import IsLogedIn from "./FunctionalCookies";
-import showError, { showMessage } from "./toast-message";
+import IsLogedIn from "../helpers/FunctionalCookies";
+import showError, { showMessage } from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { withCookies } from "react-cookie";
@@ -41,7 +41,7 @@ function AdminProducts() {
             />
           </td>
           <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
-          ₹{item.price}
+            ₹{item.price}
           </td>
           <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap dark:text-white">
             {item.stock} Pcs.
@@ -78,7 +78,7 @@ function AdminProducts() {
     }).then((response) => {
       console.log(response);
       let error = response.data[0]["error"];
-      if (error !== "no") 
+      if (error !== "no")
         showError(error);
       else {
         showMessage(response.data[1]["message"]);
@@ -104,20 +104,20 @@ function AdminProducts() {
         console.log(response);
         let data = response.data;
         let error = data[0]['error'];
-          if (error !== 'no') {
-            showError(error);
+        if (error !== 'no') {
+          showError(error);
+        }
+        else {
+          let total = data[1]['total'];
+          if (total === 0) {
+            showError('no products available');
           }
           else {
-            let total = data[1]['total'];
-            if (total === 0) {
-              showError('no products available');
-            }
-            else {
-              data.splice(0, 2);
-              setProduct(data);
-            }
+            data.splice(0, 2);
+            setProduct(data);
           }
-        })
+        }
+      })
         .catch((error) => {
           showError('oops something went wrong, please contact developer....');
         });
@@ -137,7 +137,7 @@ function AdminProducts() {
           <h1 className="font-bold text-xl text-gray-700"><i class="fa-solid fa-boxes-packing fa-sm"></i> Manage Products</h1>
           <Link to="/admin-insert-products">
             <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-            <i class="fa-solid fa-circle-plus fa-xs"></i> Add Product
+              <i class="fa-solid fa-circle-plus fa-xs"></i> Add Product
             </button>
           </Link>
         </div>
@@ -146,28 +146,28 @@ function AdminProducts() {
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa-solid fa-id-card fa-sm"></i> Product Id
+                  <i class="fa-solid fa-id-card fa-sm"></i> Product Id
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa-solid fa-clipboard fa-sm"></i> Category
+                  <i class="fa-solid fa-clipboard fa-sm"></i> Category
                 </th>
                 <th scope="col" class="px-6 py-3" width="5%">
-                <i class="fas fa-list-alt fa-sm"></i> Name
+                  <i class="fas fa-list-alt fa-sm"></i> Name
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa-solid fa-image fa-sm"></i> Photo
+                  <i class="fa-solid fa-image fa-sm"></i> Photo
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa fa-money fa-sm"></i> Price
+                  <i class="fa fa-money fa-sm"></i> Price
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fas fa-warehouse fa-sm"></i> Stock
+                  <i class="fas fa-warehouse fa-sm"></i> Stock
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fas fa-edit fa-sm"></i> Update
+                  <i class="fas fa-edit fa-sm"></i> Update
                 </th>
                 <th scope="col" class="px-6 py-3" width="10%">
-                <i class="fa-solid fa-trash fa-sm"></i> Remove
+                  <i class="fa-solid fa-trash fa-sm"></i> Remove
                 </th>
               </tr>
             </thead>

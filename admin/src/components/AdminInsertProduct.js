@@ -1,10 +1,10 @@
 import { React, useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
-import BaseAddress from "./BaseAddress";
+import BaseAddress from "../helpers/BaseAddress";
 import axios from "axios";
-import IsLogedIn from "./FunctionalCookies";
-import showError, { showMessage } from "./toast-message";
+import IsLogedIn from "../helpers/FunctionalCookies";
+import showError, { showMessage } from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -20,7 +20,7 @@ export default function AdminInsertProducts() {
     let [photo, setPhoto] = useState();
     let [category, setCategory] = useState([]);
 
-    let FetchCategory = function(){
+    let FetchCategory = function () {
         if (category.length === 0) {
             let ApiAddress = BaseAddress() + "category.php";
             axios({
@@ -49,7 +49,7 @@ export default function AdminInsertProducts() {
     }
 
     useEffect(() => {
-       FetchCategory();
+        FetchCategory();
     });
 
     let InsertProducts = function (e) {

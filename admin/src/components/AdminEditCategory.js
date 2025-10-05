@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
 import { withCookies } from "react-cookie";
 import axios from "axios";
-import BaseAddress from "./BaseAddress";
-import showError, { showMessage } from "./toast-message";
+import BaseAddress from "../helpers/BaseAddress";
+import showError from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import IsLogedIn from "./FunctionalCookies";
-
+import IsLogedIn from "../helpers/FunctionalCookies";
 
 function AdminEditCategory() {
-   
+
     IsLogedIn();
 
     let [id, setId] = useState('');
@@ -54,15 +53,14 @@ function AdminEditCategory() {
                         alert(message);
                         window.location = "/admin-category";
                     }
-                } 
+                }
             }
         }).catch((error) => {
             showError("oops something went wrong, please contact developer....");
         });
     };
 
-    let FetchCategory = function()
-    {
+    let FetchCategory = function () {
         if (isFetched === false) {
             var url = window.location.href;
             var last_slash_position = url.lastIndexOf("/") + 1;
@@ -98,7 +96,7 @@ function AdminEditCategory() {
     }
 
     useEffect(() => {
-     FetchCategory();
+        FetchCategory();
     });
 
     return (
@@ -109,7 +107,7 @@ function AdminEditCategory() {
                 <div className="container mx-auto flex flex-col justify-center items-center">
                     <div className="lg:w-2/3 md:w-1/2 bg-indigo-300 bg-opacity-50 rounded-lg p-8 w-full">
                         <h2 className="text-gray-900 text-lg font-bold title-font mb-5">
-                        <i class="fas fa-edit fa-sm"></i> Edit category
+                            <i class="fas fa-edit fa-sm"></i> Edit category
                         </h2>
                         <form onSubmit={UpdateCategory}>
                             <div className="mb-4">
@@ -201,7 +199,7 @@ function AdminEditCategory() {
                                     type="submit"
                                     className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg w-full"
                                 >
-                                   <i class="fas fa-save fa-sm"></i> Save Changes
+                                    <i class="fas fa-save fa-sm"></i> Save Changes
                                 </button>
                             </div>
                         </form>

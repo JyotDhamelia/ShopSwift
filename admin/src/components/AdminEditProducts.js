@@ -4,11 +4,11 @@ import AdminMenu from "./AdminMenu";
 import { withCookies } from "react-cookie";
 import { useEffect } from "react";
 import axios from "axios";
-import BaseAddress from "./BaseAddress";
-import showError from "./toast-message";
+import BaseAddress from "../helpers/BaseAddress";
+import showError from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import IsLogedIn from "./FunctionalCookies";
+import IsLogedIn from "../helpers/FunctionalCookies";
 
 
 function AdminEditProducts() {

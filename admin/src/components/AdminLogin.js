@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import BaseAddress from "./BaseAddress";
+import BaseAddress from "../helpers/BaseAddress";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import showError from "./toast-message";
+import showError from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

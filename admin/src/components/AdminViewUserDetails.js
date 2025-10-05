@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdminMenu from './AdminMenu';
 import Footer from './Footer';
-import BaseAddress from "./BaseAddress";
+import BaseAddress from "../helpers/BaseAddress";
 import axios from "axios";
-import showError from "./toast-message";
+import showError from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import IsLogedIn from './FunctionalCookies';
+import IsLogedIn from '../helpers/FunctionalCookies';
 
 function AdminViewUserDetails() {
 
   IsLogedIn();
 
-  let [id, setId ] = useState('');
-  let [email, setEmail ] = useState('');
-  let [mobile, setMobile ] = useState('');
+  let [id, setId] = useState('');
+  let [email, setEmail] = useState('');
+  let [mobile, setMobile] = useState('');
 
   let FetchUsers = function () {
     let url = window.location.href;
@@ -45,7 +45,7 @@ function AdminViewUserDetails() {
       }
     }).catch((error) => {
       showError('oops something went wrong, please contact developer....');
-  });
+    });
   }
 
   useEffect(() => {
@@ -61,7 +61,7 @@ function AdminViewUserDetails() {
           <div className="p-10">
             <div className="flex items-center justify-between">
               <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-              <i class="fas fa-user fa-xs"></i> User Details
+                <i class="fas fa-user fa-xs"></i> User Details
               </h5>
               <Link to="/admin-users" className="block font-sans text-sm font-bold leading-normal text-blue-500 antialiased hover:underline">
                 View all
@@ -72,14 +72,14 @@ function AdminViewUserDetails() {
                 <div className="flex items-center gap-x-3 mr-5">
                   <img src="/Images/images.jpeg" alt="" className="relative inline-block h-14 w-14 rounded-full object-cover object-center mr-2" />
                   <div>
-                  <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
-                     <span className='font-semibold'> User id - </span> {id}
-                  </p>
                     <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
-                    <span className='font-semibold'> Email id - </span> {email}
+                      <span className='font-semibold'> User id - </span> {id}
                     </p>
                     <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
-                    <span className='font-semibold'> Mobile No - </span> {mobile}
+                      <span className='font-semibold'> Email id - </span> {email}
+                    </p>
+                    <p className="block font-sans text-m font-light leading-normal text-gray-700 antialiased capitalize">
+                      <span className='font-semibold'> Mobile No - </span> {mobile}
                     </p>
                   </div>
                 </div>

@@ -2,14 +2,13 @@ import { React, useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
 import axios from "axios";
-import BaseAddress from "./BaseAddress";
+import BaseAddress from "../helpers/BaseAddress";
 import { Link } from "react-router-dom";
-import showError, { showMessage } from "./toast-message";
+import showError, { showMessage } from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import IsLogedIn from "./FunctionalCookies";
+import IsLogedIn from "../helpers/FunctionalCookies";
 import { withCookies } from "react-cookie";
-
 
 function AdminCategory() {
   IsLogedIn();

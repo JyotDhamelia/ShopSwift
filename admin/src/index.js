@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './css/index.css';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import AdminInsertCategory from './AdminInsertCategory';
-import AdminInsertProducts from './AdminInsertProduct';
-import AdminOrders from './AdminOrders';
-import AdminCategory from './AdminCategory';
-import AdminLogin from './AdminLogin';
-import AdminProducts from './AdminProducts';
-import AdminUsers from './AdminUsers';
-import AdminHome from './AdminHome';
-import AdminLogout from './AdminLogout';
-import AdminEditProducts from './AdminEditProducts';
-import AdminEditCategory from './AdminEditCategory';
-import AdminChangePassword from './AdminChangePassword';
-import AdminForgotPassword from './AdminForgotPassword';
-import AdminViewOrderDetails from './AdminViewOrderDetails';
-import AdminViewUserDetails from './AdminViewUserDetails';
-import NoPage from './NoPage';
+import AdminInsertCategory from './components/AdminInsertCategory';
+import AdminInsertProducts from './components/AdminInsertProduct';
+import AdminOrders from './components/AdminOrders';
+import AdminCategory from './components/AdminCategory';
+import AdminLogin from './components/AdminLogin';
+import AdminProducts from './components/AdminProducts';
+import AdminUsers from './components/AdminUsers';
+import AdminHome from './components/AdminHome';
+import AdminLogout from './components/AdminLogout';
+import AdminEditProducts from './components/AdminEditProducts';
+import AdminEditCategory from './components/AdminEditCategory';
+import AdminChangePassword from './components/AdminChangePassword';
+import AdminForgotPassword from './components/AdminForgotPassword';
+import AdminViewOrderDetails from './components/AdminViewOrderDetails';
+import AdminViewUserDetails from './components/AdminViewUserDetails';
+import NoPage from './components/NoPage';
 
 function MyRoutes()
 {

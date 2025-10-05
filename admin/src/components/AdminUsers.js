@@ -1,52 +1,40 @@
 import React, { useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
-import BaseAddress from "./BaseAddress";
 import axios from "axios";
-import showError from "./toast-message";
+import BaseAddress from "../helpers/BaseAddress";
+import showError from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
-import IsLogedIn from "./FunctionalCookies";
 
-function AdminOrders() {
+function AdminUsers() {
 
-    IsLogedIn();
+    let [users, setUsers] = useState([]);
+    let [userfetched, setUserfetched] = useState('false');
 
-    let [orders, setOrders] = useState([]);
-    let [orderfetched, setOrderfetched] = useState('false');
-
-    let DisplayOrders = function (item) {
+    let DisplayUsers = function (item) {
         return (<>
             <tr class="bg-indigo-100 border-b dark:bg-indigo-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {item.id}
                 </th>
                 <td class="px-6 py-4">
-                    {item.fullname} <br />
-                    {item.address1} <br />
-                    {item.address2} <br />
-                    {item.city} - {item.pincode}
+                    {item.email}
                 </td>
                 <td class="px-6 py-4">
-                    {item.billdate}
+                    {item.mobile}
                 </td>
                 <td class="px-6 py-4">
-                    ₹{item.amount}
-                </td>
-                <td class="px-6 py-4">
-                    {item.orderstatus}
-                </td>
-                <td class="px-6 py-4">
-                    <Link to={"/admin-view-orders/" + item.id} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
+                    <Link to={"/admin-view-users/" + item.id} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
                 </td>
             </tr>
-        </>)
+        </>);
     }
 
-    let FetchOrders = function () {
-        if (orderfetched === 'false') {
-            let Apiaddress = BaseAddress() + "orders.php";
+    let FetchUsers = function () {
+        if (userfetched === 'false') {
+            let Apiaddress = BaseAddress() + "users.php";
             axios({
                 method: 'get',
                 url: Apiaddress,
@@ -56,15 +44,15 @@ function AdminOrders() {
                 if (response.status === 200) {
                     let data = response.data;
                     if (data[0]['error'] !== 'no') {
-                        showError("Error While Feching Orders");
+                        showError(data[0]['error']);
                     }
                     else if (data[1]['total'] === 0) {
                         showError("No Data Found");
                     }
                     else {
                         data.splice(0, 2);
-                        setOrders(data);
-                        setOrderfetched('true');
+                        setUsers(data);
+                        setUserfetched('true');
                     }
                 }
             }).catch((error) => {
@@ -74,32 +62,26 @@ function AdminOrders() {
     }
 
     useEffect(() => {
-        FetchOrders();
+        FetchUsers();
     });
 
     return (<>
         <AdminMenu />
         <ToastContainer />
         <div className="mx-4 md:mx-16 mt-7">
-            <h1 className="mt-7 font-bold text-xl text-gray-700"><i class="fa-solid fa-cart-shopping fa-sm"></i> Manage Orders</h1>
+            <h1 className="mt-7 font-bold text-xl text-gray-700"><i class="fas fa-user fa-sm"></i> Manage Users</h1>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center capitalize">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                <i class="fa-solid fa-id-card fa-sm"></i> Order Id
+                                <i class="fa-solid fa-id-card fa-sm"></i> User Id
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
-                                <i class="fas fa-info-circle fa-sm"></i> Customer Detail
+                                <i class="fa-solid fa-envelope fa-sm"></i> Email
                             </th>
                             <th scope="col" class="px-6 py-3" width="5%">
-                                <i class="fas fa-calendar-alt fa-sm"></i> Date
-                            </th>
-                            <th scope="col" class="px-6 py-3" width="10%">
-                                <i class="fa fa-money fa-sm"></i> Ammount
-                            </th>
-                            <th scope="col" class="px-6 py-3" width="10%">
-                                <i class="fa-solid fa-list-check fa-sm"></i> Status
+                                <i class="fa-solid fa-mobile fa-sm"></i> Mobile
                             </th>
                             <th scope="col" class="px-6 py-3" width="10%">
                                 <i class="fa-solid fa-eye fa-sm"></i> View Details
@@ -107,7 +89,7 @@ function AdminOrders() {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map((item) => DisplayOrders(item))}
+                        {users.map((item) => DisplayUsers(item))}
                     </tbody>
                 </table>
             </div>
@@ -116,4 +98,4 @@ function AdminOrders() {
     </>);
 }
 
-export default AdminOrders;
+export default AdminUsers;

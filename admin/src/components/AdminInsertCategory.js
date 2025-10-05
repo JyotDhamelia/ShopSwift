@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
 import Footer from "./Footer";
-import IsLogedIn from "./FunctionalCookies";
-import BaseAddress from "./BaseAddress";
+import IsLogedIn from "../helpers/FunctionalCookies";
+import BaseAddress from "../helpers/BaseAddress";
 import axios from "axios";
-import showError, { showMessage } from "./toast-message";
+import showError, { showMessage } from "../helpers/toast-message";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
