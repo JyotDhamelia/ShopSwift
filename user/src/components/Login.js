@@ -44,7 +44,7 @@ export default function Login() {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center vh-100">
+    <div className="d-flex align-items-center justify-content-center vh-100" style={{ padding: '0 20px' }}>
       <div className="card shadow-sm" style={{ maxWidth: "400px", width: "100%" }}>
         <div className="card-body">
           <h2 className="text-center mb-4">Login</h2>
